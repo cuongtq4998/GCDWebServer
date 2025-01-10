@@ -25,7 +25,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServerResponse.h"
+#import "MyGCDWebServerResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -49,10 +49,10 @@ typedef NSData* _Nullable (^GCDWebServerStreamBlock)(NSError** error);
 typedef void (^GCDWebServerAsyncStreamBlock)(GCDWebServerBodyReaderCompletionBlock completionBlock);
 
 /**
- *  The GCDWebServerStreamedResponse subclass of GCDWebServerResponse streams
+ *  The MyGCDWebServerStreamedResponse subclass of MyGCDWebServerResponse streams
  *  the body of the HTTP response using a GCD block.
  */
-@interface GCDWebServerStreamedResponse : GCDWebServerResponse
+@interface MyGCDWebServerStreamedResponse : MyGCDWebServerResponse
 @property(nonatomic, copy) NSString* contentType;  // Redeclare as non-null
 
 /**

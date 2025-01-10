@@ -31,11 +31,11 @@
 
 #import <sys/stat.h>
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
 #define kFileReadBufferSize (32 * 1024)
 
-@implementation GCDWebServerFileResponse {
+@implementation MyGCDWebServerFileResponse {
   NSString* _path;
   NSUInteger _offset;
   NSUInteger _size;
@@ -45,19 +45,19 @@
 @dynamic contentType, lastModifiedDate, eTag;
 
 + (instancetype)responseWithFile:(NSString*)path {
-  return [(GCDWebServerFileResponse*)[[self class] alloc] initWithFile:path];
+  return [(MyGCDWebServerFileResponse*)[[self class] alloc] initWithFile:path];
 }
 
 + (instancetype)responseWithFile:(NSString*)path isAttachment:(BOOL)attachment {
-  return [(GCDWebServerFileResponse*)[[self class] alloc] initWithFile:path isAttachment:attachment];
+  return [(MyGCDWebServerFileResponse*)[[self class] alloc] initWithFile:path isAttachment:attachment];
 }
 
 + (instancetype)responseWithFile:(NSString*)path byteRange:(NSRange)range {
-  return [(GCDWebServerFileResponse*)[[self class] alloc] initWithFile:path byteRange:range];
+  return [(MyGCDWebServerFileResponse*)[[self class] alloc] initWithFile:path byteRange:range];
 }
 
 + (instancetype)responseWithFile:(NSString*)path byteRange:(NSRange)range isAttachment:(BOOL)attachment {
-  return [(GCDWebServerFileResponse*)[[self class] alloc] initWithFile:path byteRange:range isAttachment:attachment mimeTypeOverrides:nil];
+  return [(MyGCDWebServerFileResponse*)[[self class] alloc] initWithFile:path byteRange:range isAttachment:attachment mimeTypeOverrides:nil];
 }
 
 - (instancetype)initWithFile:(NSString*)path {

@@ -27,23 +27,23 @@
 
 // MyGCDWebServer Core
 #import "MyGCDWebServer.h"
-#import "GCDWebServerConnection.h"
-#import "GCDWebServerFunctions.h"
-#import "GCDWebServerHTTPStatusCodes.h"
-#import "GCDWebServerResponse.h"
-#import "GCDWebServerRequest.h"
+#import "MyGCDWebServerConnection.h"
+#import "MyGCDWebServerFunctions.h"
+#import "MyGCDWebServerHTTPStatusCodes.h"
+#import "MyGCDWebServerResponse.h"
+#import "MyGCDWebServerRequest.h"
 
 // MyGCDWebServer Requests
-#import "GCDWebServerDataRequest.h"
-#import "GCDWebServerFileRequest.h"
-#import "GCDWebServerMultiPartFormRequest.h"
-#import "GCDWebServerURLEncodedFormRequest.h"
+#import "MyGCDWebServerDataRequest.h"
+#import "MyGCDWebServerFileRequest.h"
+#import "MyGCDWebServerMultiPartFormRequest.h"
+#import "MyGCDWebServerURLEncodedFormRequest.h"
 
 // MyGCDWebServer Responses
-#import "GCDWebServerDataResponse.h"
-#import "GCDWebServerErrorResponse.h"
-#import "GCDWebServerFileResponse.h"
-#import "GCDWebServerStreamedResponse.h"
+#import "MyGCDWebServerDataResponse.h"
+#import "MyGCDWebServerErrorResponse.h"
+#import "MyGCDWebServerFileResponse.h"
+#import "MyGCDWebServerStreamedResponse.h"
 
 // GCDWebUploader
 #import "GCDWebUploader.h"

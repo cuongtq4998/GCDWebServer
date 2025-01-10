@@ -31,23 +31,23 @@
 
 #import <zlib.h>
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
 #define kZlibErrorDomain @"ZlibErrorDomain"
 #define kGZipInitialBufferSize (256 * 1024)
 
-@interface GCDWebServerBodyEncoder : NSObject <GCDWebServerBodyReader>
+@interface GCDWebServerBodyEncoder : NSObject <MyGCDWebServerBodyReader>
 @end
 
 @interface GCDWebServerGZipEncoder : GCDWebServerBodyEncoder
 @end
 
 @implementation GCDWebServerBodyEncoder {
-  GCDWebServerResponse* __unsafe_unretained _response;
-  id<GCDWebServerBodyReader> __unsafe_unretained _reader;
+  MyGCDWebServerResponse* __unsafe_unretained _response;
+  id<MyGCDWebServerBodyReader> __unsafe_unretained _reader;
 }
 
-- (instancetype)initWithResponse:(GCDWebServerResponse* _Nonnull)response reader:(id<GCDWebServerBodyReader> _Nonnull)reader {
+- (instancetype)initWithResponse:(MyGCDWebServerResponse* _Nonnull)response reader:(id<MyGCDWebServerBodyReader> _Nonnull)reader {
   if ((self = [super init])) {
     _response = response;
     _reader = reader;
@@ -74,7 +74,7 @@
   BOOL _finished;
 }
 
-- (instancetype)initWithResponse:(GCDWebServerResponse* _Nonnull)response reader:(id<GCDWebServerBodyReader> _Nonnull)reader {
+- (instancetype)initWithResponse:(MyGCDWebServerResponse* _Nonnull)response reader:(id<MyGCDWebServerBodyReader> _Nonnull)reader {
   if ((self = [super initWithResponse:response reader:reader])) {
     response.contentLength = NSUIntegerMax;  // Make sure "Content-Length" header is not set since we don't know it
     [response setValue:@"gzip" forAdditionalHeader:@"Content-Encoding"];
@@ -148,14 +148,14 @@
 
 @end
 
-@implementation GCDWebServerResponse {
+@implementation MyGCDWebServerResponse {
   BOOL _opened;
   NSMutableArray<GCDWebServerBodyEncoder*>* _encoders;
-  id<GCDWebServerBodyReader> __unsafe_unretained _reader;
+  id<MyGCDWebServerBodyReader> __unsafe_unretained _reader;
 }
 
 + (instancetype)response {
-  return [(GCDWebServerResponse*)[[self class] alloc] init];
+  return [(MyGCDWebServerResponse*)[[self class] alloc] init];
 }
 
 - (instancetype)init {
@@ -256,14 +256,14 @@
 
 @end
 
-@implementation GCDWebServerResponse (Extensions)
+@implementation MyGCDWebServerResponse (Extensions)
 
 + (instancetype)responseWithStatusCode:(NSInteger)statusCode {
-  return [(GCDWebServerResponse*)[self alloc] initWithStatusCode:statusCode];
+  return [(MyGCDWebServerResponse*)[self alloc] initWithStatusCode:statusCode];
 }
 
 + (instancetype)responseWithRedirect:(NSURL*)location permanent:(BOOL)permanent {
-  return [(GCDWebServerResponse*)[self alloc] initWithRedirect:location permanent:permanent];
+  return [(MyGCDWebServerResponse*)[self alloc] initWithRedirect:location permanent:permanent];
 }
 
 - (instancetype)initWithStatusCode:(NSInteger)statusCode {

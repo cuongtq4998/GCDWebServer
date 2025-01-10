@@ -32,21 +32,21 @@
  *  All MyGCDWebServer headers.
  */
 
-#import "GCDWebServerHTTPStatusCodes.h"
-#import "GCDWebServerFunctions.h"
+#import "MyGCDWebServerHTTPStatusCodes.h"
+#import "MyGCDWebServerFunctions.h"
 
 #import "MyGCDWebServer.h"
-#import "GCDWebServerConnection.h"
+#import "MyGCDWebServerConnection.h"
 
-#import "GCDWebServerDataRequest.h"
-#import "GCDWebServerFileRequest.h"
-#import "GCDWebServerMultiPartFormRequest.h"
-#import "GCDWebServerURLEncodedFormRequest.h"
+#import "MyGCDWebServerDataRequest.h"
+#import "MyGCDWebServerFileRequest.h"
+#import "MyGCDWebServerMultiPartFormRequest.h"
+#import "MyGCDWebServerURLEncodedFormRequest.h"
 
-#import "GCDWebServerDataResponse.h"
-#import "GCDWebServerErrorResponse.h"
-#import "GCDWebServerFileResponse.h"
-#import "GCDWebServerStreamedResponse.h"
+#import "MyGCDWebServerDataResponse.h"
+#import "MyGCDWebServerErrorResponse.h"
+#import "MyGCDWebServerFileResponse.h"
+#import "MyGCDWebServerStreamedResponse.h"
 
 /**
  *  Check if a custom logging facility should be used instead.
@@ -180,28 +180,28 @@ extern NSString* GCDWebServerDescribeData(NSData* data, NSString* contentType);
 extern NSString* GCDWebServerComputeMD5Digest(NSString* format, ...) NS_FORMAT_FUNCTION(1, 2);
 extern NSString* GCDWebServerStringFromSockAddr(const struct sockaddr* addr, BOOL includeService);
 
-@interface GCDWebServerConnection ()
+@interface MyGCDWebServerConnection ()
 - (instancetype)initWithServer:(MyGCDWebServer*)server localAddress:(NSData*)localAddress remoteAddress:(NSData*)remoteAddress socket:(CFSocketNativeHandle)socket;
 @end
 
 @interface MyGCDWebServer ()
-@property(nonatomic, readonly) NSMutableArray<GCDWebServerHandler*>* handlers;
+@property(nonatomic, readonly) NSMutableArray<MyGCDWebServerHandler*>* handlers;
 @property(nonatomic, readonly, nullable) NSString* serverName;
 @property(nonatomic, readonly, nullable) NSString* authenticationRealm;
 @property(nonatomic, readonly, nullable) NSMutableDictionary<NSString*, NSString*>* authenticationBasicAccounts;
 @property(nonatomic, readonly, nullable) NSMutableDictionary<NSString*, NSString*>* authenticationDigestAccounts;
 @property(nonatomic, readonly) BOOL shouldAutomaticallyMapHEADToGET;
 @property(nonatomic, readonly) dispatch_queue_priority_t dispatchQueuePriority;
-- (void)willStartConnection:(GCDWebServerConnection*)connection;
-- (void)didEndConnection:(GCDWebServerConnection*)connection;
+- (void)willStartConnection:(MyGCDWebServerConnection*)connection;
+- (void)didEndConnection:(MyGCDWebServerConnection*)connection;
 @end
 
-@interface GCDWebServerHandler : NSObject
+@interface MyGCDWebServerHandler : NSObject
 @property(nonatomic, readonly) GCDWebServerMatchBlock matchBlock;
 @property(nonatomic, readonly) GCDWebServerAsyncProcessBlock asyncProcessBlock;
 @end
 
-@interface GCDWebServerRequest ()
+@interface MyGCDWebServerRequest ()
 @property(nonatomic, readonly) BOOL usesChunkedTransferEncoding;
 @property(nonatomic) NSData* localAddressData;
 @property(nonatomic) NSData* remoteAddressData;
@@ -212,7 +212,7 @@ extern NSString* GCDWebServerStringFromSockAddr(const struct sockaddr* addr, BOO
 - (void)setAttribute:(nullable id)attribute forKey:(NSString*)key;
 @end
 
-@interface GCDWebServerResponse ()
+@interface MyGCDWebServerResponse ()
 @property(nonatomic, readonly) NSDictionary<NSString*, NSString*>* additionalHeaders;
 @property(nonatomic, readonly) BOOL usesChunkedTransferEncoding;
 - (void)prepareForReading;

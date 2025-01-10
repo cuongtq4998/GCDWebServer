@@ -25,16 +25,16 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServerDataResponse.h"
-#import "GCDWebServerHTTPStatusCodes.h"
+#import "MyGCDWebServerDataResponse.h"
+#import "MyGCDWebServerHTTPStatusCodes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The GCDWebServerDataResponse subclass of GCDWebServerDataResponse generates
+ *  The MyGCDWebServerDataResponse subclass of MyGCDWebServerDataResponse generates
  *  an HTML body from an HTTP status code and an error message.
  */
-@interface GCDWebServerErrorResponse : GCDWebServerDataResponse
+@interface MyGCDWebServerErrorResponse : MyGCDWebServerDataResponse
 
 /**
  *  Creates a client error response with the corresponding HTTP status code.

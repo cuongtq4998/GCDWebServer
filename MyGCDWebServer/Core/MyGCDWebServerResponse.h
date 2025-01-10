@@ -31,21 +31,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The GCDWebServerBodyReaderCompletionBlock is passed by MyGCDWebServer to the
- *  GCDWebServerBodyReader object when reading data from it asynchronously.
+ *  MyGCDWebServerBodyReader object when reading data from it asynchronously.
  */
 typedef void (^GCDWebServerBodyReaderCompletionBlock)(NSData* _Nullable data, NSError* _Nullable error);
 
 /**
- *  This protocol is used by the GCDWebServerConnection to communicate with
- *  the GCDWebServerResponse and read the HTTP body data to send.
+ *  This protocol is used by the MyGCDWebServerConnection to communicate with
+ *  the MyGCDWebServerResponse and read the HTTP body data to send.
  *
- *  Note that multiple GCDWebServerBodyReader objects can be chained together
+ *  Note that multiple MyGCDWebServerBodyReader objects can be chained together
  *  internally e.g. to automatically apply gzip encoding to the content before
- *  passing it on to the GCDWebServerResponse.
+ *  passing it on to the MyGCDWebServerResponse.
  *
  *  @warning These methods can be called on any GCD thread.
  */
-@protocol GCDWebServerBodyReader <NSObject>
+@protocol MyGCDWebServerBodyReader <NSObject>
 
 @required
 
@@ -85,17 +85,17 @@ typedef void (^GCDWebServerBodyReaderCompletionBlock)(NSData* _Nullable data, NS
 @end
 
 /**
- *  The GCDWebServerResponse class is used to wrap a single HTTP response.
+ *  The MyGCDWebServerResponse class is used to wrap a single HTTP response.
  *  It is instantiated by the handler of the MyGCDWebServer that handled the request.
- *  If a body is present, the methods from the GCDWebServerBodyReader protocol
- *  will be called by the GCDWebServerConnection to send it.
+ *  If a body is present, the methods from the MyGCDWebServerBodyReader protocol
+ *  will be called by the MyGCDWebServerConnection to send it.
  *
- *  The default implementation of the GCDWebServerBodyReader protocol
+ *  The default implementation of the MyGCDWebServerBodyReader protocol
  *  on the class simply returns an empty body.
  *
- *  @warning GCDWebServerResponse instances can be created and used on any GCD thread.
+ *  @warning MyGCDWebServerResponse instances can be created and used on any GCD thread.
  */
-@interface GCDWebServerResponse : NSObject <GCDWebServerBodyReader>
+@interface MyGCDWebServerResponse : NSObject <MyGCDWebServerBodyReader>
 
 /**
  *  Sets the content type for the body of the response.
@@ -110,7 +110,7 @@ typedef void (^GCDWebServerBodyReaderCompletionBlock)(NSData* _Nullable data, NS
  *  Sets the content length for the body of the response. If a body is present
  *  but this property is set to "NSUIntegerMax", this means the length of the body
  *  cannot be known ahead of time. Chunked transfer encoding will be
- *  automatically enabled by the GCDWebServerConnection to comply with HTTP/1.1
+ *  automatically enabled by the MyGCDWebServerConnection to comply with HTTP/1.1
  *  specifications.
  *
  *  The default value is "NSUIntegerMax" i.e. the response has no body or its length
@@ -174,7 +174,7 @@ typedef void (^GCDWebServerBodyReaderCompletionBlock)(NSData* _Nullable data, NS
  *  Pass a nil value to remove an additional header.
  *
  *  @warning Do not attempt to override the primary headers used
- *  by GCDWebServerResponse like "Content-Type", "ETag", etc...
+ *  by MyGCDWebServerResponse like "Content-Type", "ETag", etc...
  */
 - (void)setValue:(nullable NSString*)value forAdditionalHeader:(NSString*)header;
 
@@ -185,7 +185,7 @@ typedef void (^GCDWebServerBodyReaderCompletionBlock)(NSData* _Nullable data, NS
 
 @end
 
-@interface GCDWebServerResponse (Extensions)
+@interface MyGCDWebServerResponse (Extensions)
 
 /**
  *  Creates a empty response with a specific HTTP status code.

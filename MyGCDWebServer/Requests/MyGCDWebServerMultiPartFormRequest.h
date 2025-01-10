@@ -25,7 +25,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServerRequest.h"
+#import "MyGCDWebServerRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -98,10 +98,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The GCDWebServerMultiPartFormRequest subclass of GCDWebServerRequest
+ *  The MyGCDWebServerMultiPartFormRequest subclass of MyGCDWebServerRequest
  *  parses the body of the HTTP request as a multipart encoded form.
  */
-@interface GCDWebServerMultiPartFormRequest : GCDWebServerRequest
+@interface MyGCDWebServerMultiPartFormRequest : MyGCDWebServerRequest
 
 /**
  *  Returns the argument parts from the multipart encoded form as

@@ -29,7 +29,7 @@
 #error MyGCDWebServer requires ARC
 #endif
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
 #define kMultiPartBufferSize (256 * 1024)
 
@@ -311,12 +311,12 @@ static NSData* _dashNewlineData = nil;
 
 @end
 
-@interface GCDWebServerMultiPartFormRequest ()
+@interface MyGCDWebServerMultiPartFormRequest ()
 @property(nonatomic) NSMutableArray<GCDWebServerMultiPartArgument*>* arguments;
 @property(nonatomic) NSMutableArray<GCDWebServerMultiPartFile*>* files;
 @end
 
-@implementation GCDWebServerMultiPartFormRequest {
+@implementation MyGCDWebServerMultiPartFormRequest {
   GCDWebServerMIMEStreamParser* _parser;
 }
 

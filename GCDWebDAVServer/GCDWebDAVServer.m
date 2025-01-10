@@ -36,14 +36,14 @@
 
 #import "GCDWebDAVServer.h"
 
-#import "GCDWebServerFunctions.h"
+#import "MyGCDWebServerFunctions.h"
 
-#import "GCDWebServerDataRequest.h"
-#import "GCDWebServerFileRequest.h"
+#import "MyGCDWebServerDataRequest.h"
+#import "MyGCDWebServerFileRequest.h"
 
-#import "GCDWebServerDataResponse.h"
-#import "GCDWebServerErrorResponse.h"
-#import "GCDWebServerFileResponse.h"
+#import "MyGCDWebServerDataResponse.h"
+#import "MyGCDWebServerErrorResponse.h"
+#import "MyGCDWebServerFileResponse.h"
 
 #define kXMLParseOptions (XML_PARSE_NONET | XML_PARSE_RECOVER | XML_PARSE_NOBLANKS | XML_PARSE_COMPACT | XML_PARSE_NOWARNING | XML_PARSE_NOERROR)
 
@@ -58,15 +58,15 @@ typedef NS_ENUM(NSInteger, DAVProperties) {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GCDWebDAVServer (Methods)
-- (nullable GCDWebServerResponse*)performOPTIONS:(GCDWebServerRequest*)request;
-- (nullable GCDWebServerResponse*)performGET:(GCDWebServerRequest*)request;
-- (nullable GCDWebServerResponse*)performPUT:(GCDWebServerFileRequest*)request;
-- (nullable GCDWebServerResponse*)performDELETE:(GCDWebServerRequest*)request;
-- (nullable GCDWebServerResponse*)performMKCOL:(GCDWebServerDataRequest*)request;
-- (nullable GCDWebServerResponse*)performCOPY:(GCDWebServerRequest*)request isMove:(BOOL)isMove;
-- (nullable GCDWebServerResponse*)performPROPFIND:(GCDWebServerDataRequest*)request;
-- (nullable GCDWebServerResponse*)performLOCK:(GCDWebServerDataRequest*)request;
-- (nullable GCDWebServerResponse*)performUNLOCK:(GCDWebServerRequest*)request;
+- (nullable MyGCDWebServerResponse*)performOPTIONS:(MyGCDWebServerRequest*)request;
+- (nullable MyGCDWebServerResponse*)performGET:(MyGCDWebServerRequest*)request;
+- (nullable MyGCDWebServerResponse*)performPUT:(MyGCDWebServerFileRequest*)request;
+- (nullable MyGCDWebServerResponse*)performDELETE:(MyGCDWebServerRequest*)request;
+- (nullable MyGCDWebServerResponse*)performMKCOL:(MyGCDWebServerDataRequest*)request;
+- (nullable MyGCDWebServerResponse*)performCOPY:(MyGCDWebServerRequest*)request isMove:(BOOL)isMove;
+- (nullable MyGCDWebServerResponse*)performPROPFIND:(MyGCDWebServerDataRequest*)request;
+- (nullable MyGCDWebServerResponse*)performLOCK:(MyGCDWebServerDataRequest*)request;
+- (nullable MyGCDWebServerResponse*)performUNLOCK:(MyGCDWebServerRequest*)request;
 @end
 
 NS_ASSUME_NONNULL_END
@@ -82,71 +82,71 @@ NS_ASSUME_NONNULL_END
 
     // 9.1 PROPFIND method
     [self addDefaultHandlerForMethod:@"PROPFIND"
-                        requestClass:[GCDWebServerDataRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
-                          return [server performPROPFIND:(GCDWebServerDataRequest*)request];
+                        requestClass:[MyGCDWebServerDataRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
+                          return [server performPROPFIND:(MyGCDWebServerDataRequest*)request];
                         }];
 
     // 9.3 MKCOL Method
     [self addDefaultHandlerForMethod:@"MKCOL"
-                        requestClass:[GCDWebServerDataRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
-                          return [server performMKCOL:(GCDWebServerDataRequest*)request];
+                        requestClass:[MyGCDWebServerDataRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
+                          return [server performMKCOL:(MyGCDWebServerDataRequest*)request];
                         }];
 
     // 9.4 GET & HEAD methods
     [self addDefaultHandlerForMethod:@"GET"
-                        requestClass:[GCDWebServerRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+                        requestClass:[MyGCDWebServerRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
                           return [server performGET:request];
                         }];
 
     // 9.6 DELETE method
     [self addDefaultHandlerForMethod:@"DELETE"
-                        requestClass:[GCDWebServerRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+                        requestClass:[MyGCDWebServerRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
                           return [server performDELETE:request];
                         }];
 
     // 9.7 PUT method
     [self addDefaultHandlerForMethod:@"PUT"
-                        requestClass:[GCDWebServerFileRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
-                          return [server performPUT:(GCDWebServerFileRequest*)request];
+                        requestClass:[MyGCDWebServerFileRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
+                          return [server performPUT:(MyGCDWebServerFileRequest*)request];
                         }];
 
     // 9.8 COPY method
     [self addDefaultHandlerForMethod:@"COPY"
-                        requestClass:[GCDWebServerRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+                        requestClass:[MyGCDWebServerRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
                           return [server performCOPY:request isMove:NO];
                         }];
 
     // 9.9 MOVE method
     [self addDefaultHandlerForMethod:@"MOVE"
-                        requestClass:[GCDWebServerRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+                        requestClass:[MyGCDWebServerRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
                           return [server performCOPY:request isMove:YES];
                         }];
 
     // 9.10 LOCK method
     [self addDefaultHandlerForMethod:@"LOCK"
-                        requestClass:[GCDWebServerDataRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
-                          return [server performLOCK:(GCDWebServerDataRequest*)request];
+                        requestClass:[MyGCDWebServerDataRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
+                          return [server performLOCK:(MyGCDWebServerDataRequest*)request];
                         }];
 
     // 9.11 UNLOCK method
     [self addDefaultHandlerForMethod:@"UNLOCK"
-                        requestClass:[GCDWebServerRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+                        requestClass:[MyGCDWebServerRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
                           return [server performUNLOCK:request];
                         }];
 
     // 10.1 OPTIONS method / DAV Header
     [self addDefaultHandlerForMethod:@"OPTIONS"
-                        requestClass:[GCDWebServerRequest class]
-                        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+                        requestClass:[MyGCDWebServerRequest class]
+                        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
                           return [server performOPTIONS:request];
                         }];
   }
@@ -164,13 +164,13 @@ NS_ASSUME_NONNULL_END
   return YES;
 }
 
-static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
+static inline BOOL _IsMacFinder(MyGCDWebServerRequest* request) {
   NSString* userAgentHeader = [request.headers objectForKey:@"User-Agent"];
   return ([userAgentHeader hasPrefix:@"WebDAVFS/"] || [userAgentHeader hasPrefix:@"WebDAVLib/"]);  // OS X WebDAV client
 }
 
-- (GCDWebServerResponse*)performOPTIONS:(GCDWebServerRequest*)request {
-  GCDWebServerResponse* response = [GCDWebServerResponse response];
+- (MyGCDWebServerResponse*)performOPTIONS:(MyGCDWebServerRequest*)request {
+  MyGCDWebServerResponse* response = [MyGCDWebServerResponse response];
   if (_IsMacFinder(request)) {
     [response setValue:@"1, 2" forAdditionalHeader:@"DAV"];  // Classes 1 and 2
   } else {
@@ -179,22 +179,22 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
   return response;
 }
 
-- (GCDWebServerResponse*)performGET:(GCDWebServerRequest*)request {
+- (MyGCDWebServerResponse*)performGET:(MyGCDWebServerRequest*)request {
   NSString* relativePath = request.path;
   NSString* absolutePath = [_uploadDirectory stringByAppendingPathComponent:GCDWebServerNormalizePath(relativePath)];
   BOOL isDirectory = NO;
   if (![[NSFileManager defaultManager] fileExistsAtPath:absolutePath isDirectory:&isDirectory]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
   }
 
   NSString* itemName = [absolutePath lastPathComponent];
   if (([itemName hasPrefix:@"."] && !_allowHiddenItems) || (!isDirectory && ![self _checkFileExtension:itemName])) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Downlading item name \"%@\" is not allowed", itemName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Downlading item name \"%@\" is not allowed", itemName];
   }
 
   // Because HEAD requests are mapped to GET ones, we need to handle directories but it's OK to return nothing per http://webdav.org/specs/rfc4918.html#rfc.section.9.4
   if (isDirectory) {
-    return [GCDWebServerResponse response];
+    return [MyGCDWebServerResponse response];
   }
 
   if ([self.delegate respondsToSelector:@selector(davServer:didDownloadFileAtPath:)]) {
@@ -204,42 +204,42 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
   }
 
   if ([request hasByteRange]) {
-    return [GCDWebServerFileResponse responseWithFile:absolutePath byteRange:request.byteRange];
+    return [MyGCDWebServerFileResponse responseWithFile:absolutePath byteRange:request.byteRange];
   }
 
-  return [GCDWebServerFileResponse responseWithFile:absolutePath];
+  return [MyGCDWebServerFileResponse responseWithFile:absolutePath];
 }
 
-- (GCDWebServerResponse*)performPUT:(GCDWebServerFileRequest*)request {
+- (MyGCDWebServerResponse*)performPUT:(MyGCDWebServerFileRequest*)request {
   if ([request hasByteRange]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Range uploads not supported"];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Range uploads not supported"];
   }
 
   NSString* relativePath = request.path;
   NSString* absolutePath = [_uploadDirectory stringByAppendingPathComponent:GCDWebServerNormalizePath(relativePath)];
   BOOL isDirectory;
   if (![[NSFileManager defaultManager] fileExistsAtPath:[absolutePath stringByDeletingLastPathComponent] isDirectory:&isDirectory] || !isDirectory) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Conflict message:@"Missing intermediate collection(s) for \"%@\"", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Conflict message:@"Missing intermediate collection(s) for \"%@\"", relativePath];
   }
 
   BOOL existing = [[NSFileManager defaultManager] fileExistsAtPath:absolutePath isDirectory:&isDirectory];
   if (existing && isDirectory) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_MethodNotAllowed message:@"PUT not allowed on existing collection \"%@\"", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_MethodNotAllowed message:@"PUT not allowed on existing collection \"%@\"", relativePath];
   }
 
   NSString* fileName = [absolutePath lastPathComponent];
   if (([fileName hasPrefix:@"."] && !_allowHiddenItems) || ![self _checkFileExtension:fileName]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Uploading file name \"%@\" is not allowed", fileName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Uploading file name \"%@\" is not allowed", fileName];
   }
 
   if (![self shouldUploadFileAtPath:absolutePath withTemporaryFile:request.temporaryPath]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Uploading file to \"%@\" is not permitted", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Uploading file to \"%@\" is not permitted", relativePath];
   }
 
   [[NSFileManager defaultManager] removeItemAtPath:absolutePath error:NULL];
   NSError* error = nil;
   if (![[NSFileManager defaultManager] moveItemAtPath:request.temporaryPath toPath:absolutePath error:&error]) {
-    return [GCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed moving uploaded file to \"%@\"", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed moving uploaded file to \"%@\"", relativePath];
   }
 
   if ([self.delegate respondsToSelector:@selector(davServer:didUploadFileAtPath:)]) {
@@ -247,34 +247,34 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
       [self.delegate davServer:self didUploadFileAtPath:absolutePath];
     });
   }
-  return [GCDWebServerResponse responseWithStatusCode:(existing ? kGCDWebServerHTTPStatusCode_NoContent : kGCDWebServerHTTPStatusCode_Created)];
+  return [MyGCDWebServerResponse responseWithStatusCode:(existing ? kGCDWebServerHTTPStatusCode_NoContent : kGCDWebServerHTTPStatusCode_Created)];
 }
 
-- (GCDWebServerResponse*)performDELETE:(GCDWebServerRequest*)request {
+- (MyGCDWebServerResponse*)performDELETE:(MyGCDWebServerRequest*)request {
   NSString* depthHeader = [request.headers objectForKey:@"Depth"];
   if (depthHeader && ![depthHeader isEqualToString:@"infinity"]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Unsupported 'Depth' header: %@", depthHeader];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Unsupported 'Depth' header: %@", depthHeader];
   }
 
   NSString* relativePath = request.path;
   NSString* absolutePath = [_uploadDirectory stringByAppendingPathComponent:GCDWebServerNormalizePath(relativePath)];
   BOOL isDirectory = NO;
   if (![[NSFileManager defaultManager] fileExistsAtPath:absolutePath isDirectory:&isDirectory]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
   }
 
   NSString* itemName = [absolutePath lastPathComponent];
   if (([itemName hasPrefix:@"."] && !_allowHiddenItems) || (!isDirectory && ![self _checkFileExtension:itemName])) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Deleting item name \"%@\" is not allowed", itemName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Deleting item name \"%@\" is not allowed", itemName];
   }
 
   if (![self shouldDeleteItemAtPath:absolutePath]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Deleting \"%@\" is not permitted", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Deleting \"%@\" is not permitted", relativePath];
   }
 
   NSError* error = nil;
   if (![[NSFileManager defaultManager] removeItemAtPath:absolutePath error:&error]) {
-    return [GCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed deleting \"%@\"", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed deleting \"%@\"", relativePath];
   }
 
   if ([self.delegate respondsToSelector:@selector(davServer:didDeleteItemAtPath:)]) {
@@ -282,40 +282,40 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
       [self.delegate davServer:self didDeleteItemAtPath:absolutePath];
     });
   }
-  return [GCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_NoContent];
+  return [MyGCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_NoContent];
 }
 
-- (GCDWebServerResponse*)performMKCOL:(GCDWebServerDataRequest*)request {
+- (MyGCDWebServerResponse*)performMKCOL:(MyGCDWebServerDataRequest*)request {
   if ([request hasBody] && (request.contentLength > 0)) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_UnsupportedMediaType message:@"Unexpected request body for MKCOL method"];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_UnsupportedMediaType message:@"Unexpected request body for MKCOL method"];
   }
 
   NSString* relativePath = request.path;
   NSString* absolutePath = [_uploadDirectory stringByAppendingPathComponent:GCDWebServerNormalizePath(relativePath)];
   BOOL isDirectory;
   if (![[NSFileManager defaultManager] fileExistsAtPath:[absolutePath stringByDeletingLastPathComponent] isDirectory:&isDirectory] || !isDirectory) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Conflict message:@"Missing intermediate collection(s) for \"%@\"", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Conflict message:@"Missing intermediate collection(s) for \"%@\"", relativePath];
   }
 
   NSString* directoryName = [absolutePath lastPathComponent];
   if (!_allowHiddenItems && [directoryName hasPrefix:@"."]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Creating directory name \"%@\" is not allowed", directoryName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Creating directory name \"%@\" is not allowed", directoryName];
   }
 
   if (![self shouldCreateDirectoryAtPath:absolutePath]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Creating directory \"%@\" is not permitted", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Creating directory \"%@\" is not permitted", relativePath];
   }
 
   NSError* error = nil;
   if (![[NSFileManager defaultManager] createDirectoryAtPath:absolutePath withIntermediateDirectories:NO attributes:nil error:&error]) {
-    return [GCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed creating directory \"%@\"", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed creating directory \"%@\"", relativePath];
   }
 #ifdef __GCDWEBSERVER_ENABLE_TESTING__
   NSString* creationDateHeader = [request.headers objectForKey:@"X-MyGCDWebServer-CreationDate"];
   if (creationDateHeader) {
     NSDate* date = GCDWebServerParseISO8601(creationDateHeader);
     if (!date || ![[NSFileManager defaultManager] setAttributes:@{NSFileCreationDate : date} ofItemAtPath:absolutePath error:&error]) {
-      return [GCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed setting creation date for directory \"%@\"", relativePath];
+      return [MyGCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed setting creation date for directory \"%@\"", relativePath];
     }
   }
 #endif
@@ -325,14 +325,14 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
       [self.delegate davServer:self didCreateDirectoryAtPath:absolutePath];
     });
   }
-  return [GCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_Created];
+  return [MyGCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_Created];
 }
 
-- (GCDWebServerResponse*)performCOPY:(GCDWebServerRequest*)request isMove:(BOOL)isMove {
+- (MyGCDWebServerResponse*)performCOPY:(MyGCDWebServerRequest*)request isMove:(BOOL)isMove {
   if (!isMove) {
     NSString* depthHeader = [request.headers objectForKey:@"Depth"];  // TODO: Support "Depth: 0"
     if (depthHeader && ![depthHeader isEqualToString:@"infinity"]) {
-      return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Unsupported 'Depth' header: %@", depthHeader];
+      return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Unsupported 'Depth' header: %@", depthHeader];
     }
   }
 
@@ -342,7 +342,7 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
   NSString* dstRelativePath = [request.headers objectForKey:@"Destination"];
   NSRange range = [dstRelativePath rangeOfString:(NSString*)[request.headers objectForKey:@"Host"]];
   if ((dstRelativePath == nil) || (range.location == NSNotFound)) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Malformed 'Destination' header: %@", dstRelativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Malformed 'Destination' header: %@", dstRelativePath];
   }
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -350,37 +350,37 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
 #pragma clang diagnostic pop
   NSString* dstAbsolutePath = [_uploadDirectory stringByAppendingPathComponent:GCDWebServerNormalizePath(dstRelativePath)];
   if (!dstAbsolutePath) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", srcRelativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", srcRelativePath];
   }
 
   BOOL isDirectory;
   if (![[NSFileManager defaultManager] fileExistsAtPath:[dstAbsolutePath stringByDeletingLastPathComponent] isDirectory:&isDirectory] || !isDirectory) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Conflict message:@"Invalid destination \"%@\"", dstRelativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Conflict message:@"Invalid destination \"%@\"", dstRelativePath];
   }
 
   NSString* srcName = [srcAbsolutePath lastPathComponent];
   if ((!_allowHiddenItems && [srcName hasPrefix:@"."]) || (!isDirectory && ![self _checkFileExtension:srcName])) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"%@ from item name \"%@\" is not allowed", isMove ? @"Moving" : @"Copying", srcName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"%@ from item name \"%@\" is not allowed", isMove ? @"Moving" : @"Copying", srcName];
   }
 
   NSString* dstName = [dstAbsolutePath lastPathComponent];
   if ((!_allowHiddenItems && [dstName hasPrefix:@"."]) || (!isDirectory && ![self _checkFileExtension:dstName])) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"%@ to item name \"%@\" is not allowed", isMove ? @"Moving" : @"Copying", dstName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"%@ to item name \"%@\" is not allowed", isMove ? @"Moving" : @"Copying", dstName];
   }
 
   NSString* overwriteHeader = [request.headers objectForKey:@"Overwrite"];
   BOOL existing = [[NSFileManager defaultManager] fileExistsAtPath:dstAbsolutePath];
   if (existing && ((isMove && ![overwriteHeader isEqualToString:@"T"]) || (!isMove && [overwriteHeader isEqualToString:@"F"]))) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_PreconditionFailed message:@"Destination \"%@\" already exists", dstRelativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_PreconditionFailed message:@"Destination \"%@\" already exists", dstRelativePath];
   }
 
   if (isMove) {
     if (![self shouldMoveItemFromPath:srcAbsolutePath toPath:dstAbsolutePath]) {
-      return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Moving \"%@\" to \"%@\" is not permitted", srcRelativePath, dstRelativePath];
+      return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Moving \"%@\" to \"%@\" is not permitted", srcRelativePath, dstRelativePath];
     }
   } else {
     if (![self shouldCopyItemFromPath:srcAbsolutePath toPath:dstAbsolutePath]) {
-      return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Copying \"%@\" to \"%@\" is not permitted", srcRelativePath, dstRelativePath];
+      return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Copying \"%@\" to \"%@\" is not permitted", srcRelativePath, dstRelativePath];
     }
   }
 
@@ -388,11 +388,11 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
   if (isMove) {
     [[NSFileManager defaultManager] removeItemAtPath:dstAbsolutePath error:NULL];
     if (![[NSFileManager defaultManager] moveItemAtPath:srcAbsolutePath toPath:dstAbsolutePath error:&error]) {
-      return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden underlyingError:error message:@"Failed copying \"%@\" to \"%@\"", srcRelativePath, dstRelativePath];
+      return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden underlyingError:error message:@"Failed copying \"%@\" to \"%@\"", srcRelativePath, dstRelativePath];
     }
   } else {
     if (![[NSFileManager defaultManager] copyItemAtPath:srcAbsolutePath toPath:dstAbsolutePath error:&error]) {
-      return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden underlyingError:error message:@"Failed copying \"%@\" to \"%@\"", srcRelativePath, dstRelativePath];
+      return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden underlyingError:error message:@"Failed copying \"%@\" to \"%@\"", srcRelativePath, dstRelativePath];
     }
   }
 
@@ -410,7 +410,7 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
     }
   }
 
-  return [GCDWebServerResponse responseWithStatusCode:(existing ? kGCDWebServerHTTPStatusCode_NoContent : kGCDWebServerHTTPStatusCode_Created)];
+  return [MyGCDWebServerResponse responseWithStatusCode:(existing ? kGCDWebServerHTTPStatusCode_NoContent : kGCDWebServerHTTPStatusCode_Created)];
 }
 
 static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name) {
@@ -470,7 +470,7 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
   }
 }
 
-- (GCDWebServerResponse*)performPROPFIND:(GCDWebServerDataRequest*)request {
+- (MyGCDWebServerResponse*)performPROPFIND:(MyGCDWebServerDataRequest*)request {
   NSInteger depth;
   NSString* depthHeader = [request.headers objectForKey:@"Depth"];
   if ([depthHeader isEqualToString:@"0"]) {
@@ -478,7 +478,7 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
   } else if ([depthHeader isEqualToString:@"1"]) {
     depth = 1;
   } else {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Unsupported 'Depth' header: %@", depthHeader];  // TODO: Return 403 / propfind-finite-depth for "infinity" depth
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Unsupported 'Depth' header: %@", depthHeader];  // TODO: Return 403 / propfind-finite-depth for "infinity" depth
   }
 
   DAVProperties properties = 0;
@@ -516,7 +516,7 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
     }
     if (!success) {
       NSString* string = [[NSString alloc] initWithData:request.data encoding:NSUTF8StringEncoding];
-      return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Invalid DAV properties:\n%@", string];
+      return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Invalid DAV properties:\n%@", string];
     }
   } else {
     properties = kDAVAllProperties;
@@ -526,12 +526,12 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
   NSString* absolutePath = [_uploadDirectory stringByAppendingPathComponent:GCDWebServerNormalizePath(relativePath)];
   BOOL isDirectory = NO;
   if (![[NSFileManager defaultManager] fileExistsAtPath:absolutePath isDirectory:&isDirectory]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
   }
 
   NSString* itemName = [absolutePath lastPathComponent];
   if (([itemName hasPrefix:@"."] && !_allowHiddenItems) || (!isDirectory && ![self _checkFileExtension:itemName])) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Retrieving properties for item name \"%@\" is not allowed", itemName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Retrieving properties for item name \"%@\" is not allowed", itemName];
   }
 
   NSArray* items = nil;
@@ -539,7 +539,7 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
     NSError* error = nil;
     items = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:absolutePath error:&error] sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
     if (items == nil) {
-      return [GCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed listing directory \"%@\"", relativePath];
+      return [MyGCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed listing directory \"%@\"", relativePath];
     }
   }
 
@@ -561,22 +561,22 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
   }
   [xmlString appendString:@"</D:multistatus>"];
 
-  GCDWebServerDataResponse* response = [GCDWebServerDataResponse responseWithData:(NSData*)[xmlString dataUsingEncoding:NSUTF8StringEncoding]
+  MyGCDWebServerDataResponse* response = [MyGCDWebServerDataResponse responseWithData:(NSData*)[xmlString dataUsingEncoding:NSUTF8StringEncoding]
                                                                       contentType:@"application/xml; charset=\"utf-8\""];
   response.statusCode = kGCDWebServerHTTPStatusCode_MultiStatus;
   return response;
 }
 
-- (GCDWebServerResponse*)performLOCK:(GCDWebServerDataRequest*)request {
+- (MyGCDWebServerResponse*)performLOCK:(MyGCDWebServerDataRequest*)request {
   if (!_IsMacFinder(request)) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_MethodNotAllowed message:@"LOCK method only allowed for Mac Finder"];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_MethodNotAllowed message:@"LOCK method only allowed for Mac Finder"];
   }
 
   NSString* relativePath = request.path;
   NSString* absolutePath = [_uploadDirectory stringByAppendingPathComponent:GCDWebServerNormalizePath(relativePath)];
   BOOL isDirectory = NO;
   if (![[NSFileManager defaultManager] fileExistsAtPath:absolutePath isDirectory:&isDirectory]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
   }
 
   NSString* depthHeader = [request.headers objectForKey:@"Depth"];
@@ -614,16 +614,16 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
   }
   if (!success) {
     NSString* string = [[NSString alloc] initWithData:request.data encoding:NSUTF8StringEncoding];
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Invalid DAV properties:\n%@", string];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Invalid DAV properties:\n%@", string];
   }
 
   if (![scope isEqualToString:@"exclusive"] || ![type isEqualToString:@"write"] || ![depthHeader isEqualToString:@"0"]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Locking request \"%@/%@/%@\" for \"%@\" is not allowed", scope, type, depthHeader, relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Locking request \"%@/%@/%@\" for \"%@\" is not allowed", scope, type, depthHeader, relativePath];
   }
 
   NSString* itemName = [absolutePath lastPathComponent];
   if ((!_allowHiddenItems && [itemName hasPrefix:@"."]) || (!isDirectory && ![self _checkFileExtension:itemName])) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Locking item name \"%@\" is not allowed", itemName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Locking item name \"%@\" is not allowed", itemName];
   }
 
 #ifdef __GCDWEBSERVER_ENABLE_TESTING__
@@ -659,35 +659,35 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
   [xmlString appendString:@"</D:prop>"];
 
   [self logVerbose:@"WebDAV pretending to lock \"%@\"", relativePath];
-  GCDWebServerDataResponse* response = [GCDWebServerDataResponse responseWithData:(NSData*)[xmlString dataUsingEncoding:NSUTF8StringEncoding]
+  MyGCDWebServerDataResponse* response = [MyGCDWebServerDataResponse responseWithData:(NSData*)[xmlString dataUsingEncoding:NSUTF8StringEncoding]
                                                                       contentType:@"application/xml; charset=\"utf-8\""];
   return response;
 }
 
-- (GCDWebServerResponse*)performUNLOCK:(GCDWebServerRequest*)request {
+- (MyGCDWebServerResponse*)performUNLOCK:(MyGCDWebServerRequest*)request {
   if (!_IsMacFinder(request)) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_MethodNotAllowed message:@"UNLOCK method only allowed for Mac Finder"];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_MethodNotAllowed message:@"UNLOCK method only allowed for Mac Finder"];
   }
 
   NSString* relativePath = request.path;
   NSString* absolutePath = [_uploadDirectory stringByAppendingPathComponent:GCDWebServerNormalizePath(relativePath)];
   BOOL isDirectory = NO;
   if (![[NSFileManager defaultManager] fileExistsAtPath:absolutePath isDirectory:&isDirectory]) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_NotFound message:@"\"%@\" does not exist", relativePath];
   }
 
   NSString* tokenHeader = [request.headers objectForKey:@"Lock-Token"];
   if (!tokenHeader.length) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Missing 'Lock-Token' header"];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_BadRequest message:@"Missing 'Lock-Token' header"];
   }
 
   NSString* itemName = [absolutePath lastPathComponent];
   if ((!_allowHiddenItems && [itemName hasPrefix:@"."]) || (!isDirectory && ![self _checkFileExtension:itemName])) {
-    return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Unlocking item name \"%@\" is not allowed", itemName];
+    return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Unlocking item name \"%@\" is not allowed", itemName];
   }
 
   [self logVerbose:@"WebDAV pretending to unlock \"%@\"", relativePath];
-  return [GCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_NoContent];
+  return [MyGCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_NoContent];
 }
 
 @end

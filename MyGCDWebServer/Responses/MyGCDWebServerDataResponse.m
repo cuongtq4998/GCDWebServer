@@ -29,9 +29,9 @@
 #error MyGCDWebServer requires ARC
 #endif
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
-@implementation GCDWebServerDataResponse {
+@implementation MyGCDWebServerDataResponse {
   NSData* _data;
   BOOL _done;
 }
@@ -39,7 +39,7 @@
 @dynamic contentType;
 
 + (instancetype)responseWithData:(NSData*)data contentType:(NSString*)type {
-  return [(GCDWebServerDataResponse*)[[self class] alloc] initWithData:data contentType:type];
+  return [(MyGCDWebServerDataResponse*)[[self class] alloc] initWithData:data contentType:type];
 }
 
 - (instancetype)initWithData:(NSData*)data contentType:(NSString*)type {
@@ -72,26 +72,26 @@
 
 @end
 
-@implementation GCDWebServerDataResponse (Extensions)
+@implementation MyGCDWebServerDataResponse (Extensions)
 
 + (instancetype)responseWithText:(NSString*)text {
-  return [(GCDWebServerDataResponse*)[self alloc] initWithText:text];
+  return [(MyGCDWebServerDataResponse*)[self alloc] initWithText:text];
 }
 
 + (instancetype)responseWithHTML:(NSString*)html {
-  return [(GCDWebServerDataResponse*)[self alloc] initWithHTML:html];
+  return [(MyGCDWebServerDataResponse*)[self alloc] initWithHTML:html];
 }
 
 + (instancetype)responseWithHTMLTemplate:(NSString*)path variables:(NSDictionary<NSString*, NSString*>*)variables {
-  return [(GCDWebServerDataResponse*)[self alloc] initWithHTMLTemplate:path variables:variables];
+  return [(MyGCDWebServerDataResponse*)[self alloc] initWithHTMLTemplate:path variables:variables];
 }
 
 + (instancetype)responseWithJSONObject:(id)object {
-  return [(GCDWebServerDataResponse*)[self alloc] initWithJSONObject:object];
+  return [(MyGCDWebServerDataResponse*)[self alloc] initWithJSONObject:object];
 }
 
 + (instancetype)responseWithJSONObject:(id)object contentType:(NSString*)type {
-  return [(GCDWebServerDataResponse*)[self alloc] initWithJSONObject:object contentType:type];
+  return [(MyGCDWebServerDataResponse*)[self alloc] initWithJSONObject:object contentType:type];
 }
 
 - (instancetype)initWithText:(NSString*)text {

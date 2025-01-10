@@ -25,25 +25,36 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServerRequest.h"
+#if !__has_feature(objc_arc)
+#error MyGCDWebServer requires ARC
+#endif
 
-NS_ASSUME_NONNULL_BEGIN
+#import "MyGCDWebServerPrivate.h"
 
-/**
- *  The GCDWebServerFileRequest subclass of GCDWebServerRequest stores the body
- *  of the HTTP request to a file on disk.
- */
-@interface GCDWebServerFileRequest : GCDWebServerRequest
+@implementation MyGCDWebServerURLEncodedFormRequest
 
-/**
- *  Returns the path to the temporary file containing the request body.
- *
- *  @warning This temporary file will be automatically deleted when the
- *  GCDWebServerFileRequest is deallocated. If you want to preserve this file,
- *  you must move it to a different location beforehand.
- */
-@property(nonatomic, readonly) NSString* temporaryPath;
++ (NSString*)mimeType {
+  return @"application/x-www-form-urlencoded";
+}
+
+- (BOOL)close:(NSError**)error {
+  if (![super close:error]) {
+    return NO;
+  }
+
+  NSString* charset = GCDWebServerExtractHeaderValueParameter(self.contentType, @"charset");
+  NSString* string = [[NSString alloc] initWithData:self.data encoding:GCDWebServerStringEncodingFromCharset(charset)];
+  _arguments = GCDWebServerParseURLEncodedForm(string);
+  return YES;
+}
+
+- (NSString*)description {
+  NSMutableString* description = [NSMutableString stringWithString:[super description]];
+  [description appendString:@"\n"];
+  for (NSString* argument in [[_arguments allKeys] sortedArrayUsingSelector:@selector(compare:)]) {
+    [description appendFormat:@"\n%@ = %@", argument, [_arguments objectForKey:argument]];
+  }
+  return description;
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

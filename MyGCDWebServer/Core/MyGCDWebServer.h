@@ -27,8 +27,8 @@
 
 #import <TargetConditionals.h>
 
-#import "GCDWebServerRequest.h"
-#import "GCDWebServerResponse.h"
+#import "MyGCDWebServerRequest.h"
+#import "MyGCDWebServerResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -39,35 +39,35 @@ NS_ASSUME_NONNULL_BEGIN
  *  URL, headers...) and must decide if it wants to handle it or not.
  *
  *  If the handler can handle the request, the block must return a new
- *  GCDWebServerRequest instance created with the same basic info.
+ *  MyGCDWebServerRequest instance created with the same basic info.
  *  Otherwise, it simply returns nil.
  */
-typedef GCDWebServerRequest* _Nullable (^GCDWebServerMatchBlock)(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery);
+typedef MyGCDWebServerRequest* _Nullable (^GCDWebServerMatchBlock)(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery);
 
 /**
  *  The GCDWebServerProcessBlock is called after the HTTP request has been fully
  *  received (i.e. the entire HTTP body has been read). The block is passed the
- *  GCDWebServerRequest created at the previous step by the GCDWebServerMatchBlock.
+ *  MyGCDWebServerRequest created at the previous step by the GCDWebServerMatchBlock.
  *
- *  The block must return a GCDWebServerResponse or nil on error, which will
+ *  The block must return a MyGCDWebServerResponse or nil on error, which will
  *  result in a 500 HTTP status code returned to the client. It's however
- *  recommended to return a GCDWebServerErrorResponse on error so more useful
+ *  recommended to return a MyGCDWebServerErrorResponse on error so more useful
  *  information can be returned to the client.
  */
-typedef GCDWebServerResponse* _Nullable (^GCDWebServerProcessBlock)(__kindof GCDWebServerRequest* request);
+typedef MyGCDWebServerResponse* _Nullable (^GCDWebServerProcessBlock)(__kindof MyGCDWebServerRequest* request);
 
 /**
  *  The GCDWebServerAsynchronousProcessBlock works like the GCDWebServerProcessBlock
- *  except the GCDWebServerResponse can be returned to the server at a later time
+ *  except the MyGCDWebServerResponse can be returned to the server at a later time
  *  allowing for asynchronous generation of the response.
  *
- *  The block must eventually call "completionBlock" passing a GCDWebServerResponse
+ *  The block must eventually call "completionBlock" passing a MyGCDWebServerResponse
  *  or nil on error, which will result in a 500 HTTP status code returned to the client.
- *  It's however recommended to return a GCDWebServerErrorResponse on error so more
+ *  It's however recommended to return a MyGCDWebServerErrorResponse on error so more
  *  useful information can be returned to the client.
  */
-typedef void (^GCDWebServerCompletionBlock)(GCDWebServerResponse* _Nullable response);
-typedef void (^GCDWebServerAsyncProcessBlock)(__kindof GCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock);
+typedef void (^GCDWebServerCompletionBlock)(MyGCDWebServerResponse* _Nullable response);
+typedef void (^GCDWebServerAsyncProcessBlock)(__kindof MyGCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock);
 
 /**
  *  The GCDWebServerBuiltInLoggerBlock is used to override the built-in logger at runtime.
@@ -168,10 +168,10 @@ extern NSString* const GCDWebServerOption_AuthenticationRealm;
 extern NSString* const GCDWebServerOption_AuthenticationAccounts;
 
 /**
- *  The class used by the MyGCDWebServer when instantiating GCDWebServerConnection
- *  (subclass of GCDWebServerConnection).
+ *  The class used by the MyGCDWebServer when instantiating MyGCDWebServerConnection
+ *  (subclass of MyGCDWebServerConnection).
  *
- *  The default value is the GCDWebServerConnection class.
+ *  The default value is the MyGCDWebServerConnection class.
  */
 extern NSString* const GCDWebServerOption_ConnectionClass;
 
@@ -206,7 +206,7 @@ extern NSString* const GCDWebServerOption_DispatchQueuePriority;
 /**
  *  Enables the MyGCDWebServer to automatically suspend itself (as if -stop was
  *  called) when the iOS app goes into the background and the last
- *  GCDWebServerConnection is closed, then resume itself (as if -start was called)
+ *  MyGCDWebServerConnection is closed, then resume itself (as if -start was called)
  *  when the iOS app comes back to the foreground (NSNumber / BOOL).
  *
  *  See the README.md file for more information about this option.
@@ -239,7 +239,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
  *
  *  @warning These methods are always called on the main thread in a serialized way.
  */
-@protocol GCDWebServerDelegate <NSObject>
+@protocol MyGCDWebServerDelegate <NSObject>
 @optional
 
 /**
@@ -266,18 +266,18 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 - (void)webServerDidUpdateNATPortMapping:(MyGCDWebServer*)server;
 
 /**
- *  This method is called when the first GCDWebServerConnection is opened by the
+ *  This method is called when the first MyGCDWebServerConnection is opened by the
  *  server to serve a series of HTTP requests.
  *
  *  A series of HTTP requests is considered ongoing as long as new HTTP requests
- *  keep coming (and new GCDWebServerConnection instances keep being opened),
+ *  keep coming (and new MyGCDWebServerConnection instances keep being opened),
  *  until before the last HTTP request has been responded to (and the
- *  corresponding last GCDWebServerConnection closed).
+ *  corresponding last MyGCDWebServerConnection closed).
  */
 - (void)webServerDidConnect:(MyGCDWebServer*)server;
 
 /**
- *  This method is called when the last GCDWebServerConnection is closed after
+ *  This method is called when the last MyGCDWebServerConnection is closed after
  *  the server has served a series of HTTP requests.
  *
  *  The GCDWebServerOption_ConnectedStateCoalescingInterval option can be used
@@ -311,7 +311,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 /**
  *  Sets the delegate for the server.
  */
-@property(nonatomic, weak, nullable) id<GCDWebServerDelegate> delegate;
+@property(nonatomic, weak, nullable) id<MyGCDWebServerDelegate> delegate;
 
 /**
  *  Returns YES if the server is currently running.
@@ -384,7 +384,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 /**
  *  Stops the server and prevents it to accepts new HTTP requests.
  *
- *  @warning Stopping the server does not abort GCDWebServerConnection instances
+ *  @warning Stopping the server does not abort MyGCDWebServerConnection instances
  *  currently handling already received HTTP requests. These connections will
  *  continue to execute normally until completion.
  */

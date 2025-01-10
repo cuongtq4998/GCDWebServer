@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @warning These methods are always called on the main thread in a serialized way.
  */
-@protocol GCDWebUploaderDelegate <GCDWebServerDelegate>
+@protocol GCDWebUploaderDelegate <MyGCDWebServerDelegate>
 @optional
 
 /**

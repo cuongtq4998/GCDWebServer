@@ -29,20 +29,20 @@
 #error MyGCDWebServer requires ARC
 #endif
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
-@implementation GCDWebServerStreamedResponse {
+@implementation MyGCDWebServerStreamedResponse {
   GCDWebServerAsyncStreamBlock _block;
 }
 
 @dynamic contentType;
 
 + (instancetype)responseWithContentType:(NSString*)type streamBlock:(GCDWebServerStreamBlock)block {
-  return [(GCDWebServerStreamedResponse*)[[self class] alloc] initWithContentType:type streamBlock:block];
+  return [(MyGCDWebServerStreamedResponse*)[[self class] alloc] initWithContentType:type streamBlock:block];
 }
 
 + (instancetype)responseWithContentType:(NSString*)type asyncStreamBlock:(GCDWebServerAsyncStreamBlock)block {
-  return [(GCDWebServerStreamedResponse*)[[self class] alloc] initWithContentType:type asyncStreamBlock:block];
+  return [(MyGCDWebServerStreamedResponse*)[[self class] alloc] initWithContentType:type asyncStreamBlock:block];
 }
 
 - (instancetype)initWithContentType:(NSString*)type streamBlock:(GCDWebServerStreamBlock)block {

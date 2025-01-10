@@ -25,30 +25,24 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServerDataRequest.h"
+#import "MyGCDWebServerRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The GCDWebServerURLEncodedFormRequest subclass of GCDWebServerRequest
- *  parses the body of the HTTP request as a URL encoded form using
- *  GCDWebServerParseURLEncodedForm().
+ *  The MyGCDWebServerFileRequest subclass of MyGCDWebServerRequest stores the body
+ *  of the HTTP request to a file on disk.
  */
-@interface GCDWebServerURLEncodedFormRequest : GCDWebServerDataRequest
+@interface MyGCDWebServerFileRequest : MyGCDWebServerRequest
 
 /**
- *  Returns the unescaped control names and values for the URL encoded form.
+ *  Returns the path to the temporary file containing the request body.
  *
- *  The text encoding used to interpret the data is extracted from the
- *  "Content-Type" header or defaults to UTF-8.
+ *  @warning This temporary file will be automatically deleted when the
+ *  MyGCDWebServerFileRequest is deallocated. If you want to preserve this file,
+ *  you must move it to a different location beforehand.
  */
-@property(nonatomic, readonly) NSDictionary<NSString*, NSString*>* arguments;
-
-/**
- *  Returns the MIME type for URL encoded forms
- *  i.e. "application/x-www-form-urlencoded".
- */
-+ (NSString*)mimeType;
+@property(nonatomic, readonly) NSString* temporaryPath;
 
 @end
 

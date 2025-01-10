@@ -29,15 +29,15 @@
 #error MyGCDWebServer requires ARC
 #endif
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
-@implementation GCDWebServerErrorResponse
+@implementation MyGCDWebServerErrorResponse
 
 + (instancetype)responseWithClientError:(GCDWebServerClientErrorHTTPStatusCode)errorCode message:(NSString*)format, ... {
   GWS_DCHECK(((NSInteger)errorCode >= 400) && ((NSInteger)errorCode < 500));
   va_list arguments;
   va_start(arguments, format);
-  GCDWebServerErrorResponse* response = [(GCDWebServerErrorResponse*)[self alloc] initWithStatusCode:errorCode underlyingError:nil messageFormat:format arguments:arguments];
+  MyGCDWebServerErrorResponse* response = [(MyGCDWebServerErrorResponse*)[self alloc] initWithStatusCode:errorCode underlyingError:nil messageFormat:format arguments:arguments];
   va_end(arguments);
   return response;
 }
@@ -46,7 +46,7 @@
   GWS_DCHECK(((NSInteger)errorCode >= 500) && ((NSInteger)errorCode < 600));
   va_list arguments;
   va_start(arguments, format);
-  GCDWebServerErrorResponse* response = [(GCDWebServerErrorResponse*)[self alloc] initWithStatusCode:errorCode underlyingError:nil messageFormat:format arguments:arguments];
+  MyGCDWebServerErrorResponse* response = [(MyGCDWebServerErrorResponse*)[self alloc] initWithStatusCode:errorCode underlyingError:nil messageFormat:format arguments:arguments];
   va_end(arguments);
   return response;
 }
@@ -55,7 +55,7 @@
   GWS_DCHECK(((NSInteger)errorCode >= 400) && ((NSInteger)errorCode < 500));
   va_list arguments;
   va_start(arguments, format);
-  GCDWebServerErrorResponse* response = [(GCDWebServerErrorResponse*)[self alloc] initWithStatusCode:errorCode underlyingError:underlyingError messageFormat:format arguments:arguments];
+  MyGCDWebServerErrorResponse* response = [(MyGCDWebServerErrorResponse*)[self alloc] initWithStatusCode:errorCode underlyingError:underlyingError messageFormat:format arguments:arguments];
   va_end(arguments);
   return response;
 }
@@ -64,7 +64,7 @@
   GWS_DCHECK(((NSInteger)errorCode >= 500) && ((NSInteger)errorCode < 600));
   va_list arguments;
   va_start(arguments, format);
-  GCDWebServerErrorResponse* response = [(GCDWebServerErrorResponse*)[self alloc] initWithStatusCode:errorCode underlyingError:underlyingError messageFormat:format arguments:arguments];
+  MyGCDWebServerErrorResponse* response = [(MyGCDWebServerErrorResponse*)[self alloc] initWithStatusCode:errorCode underlyingError:underlyingError messageFormat:format arguments:arguments];
   va_end(arguments);
   return response;
 }

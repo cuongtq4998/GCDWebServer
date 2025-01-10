@@ -31,56 +31,56 @@
 		CEE28D0A1AE006C300F4023C /* MyGCDWebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1618F99C810095C089 /* MyGCDWebServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEE28D0B1AE006CC00F4023C /* MyGCDWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1718F99C810095C089 /* MyGCDWebServer.m */; };
 		CEE28D0C1AE006CD00F4023C /* MyGCDWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1718F99C810095C089 /* MyGCDWebServer.m */; };
-		CEE28D0D1AE006D700F4023C /* GCDWebServerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1818F99C810095C089 /* GCDWebServerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D0E1AE006D800F4023C /* GCDWebServerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1818F99C810095C089 /* GCDWebServerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D0F1AE006DE00F4023C /* GCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1918F99C810095C089 /* GCDWebServerConnection.m */; };
-		CEE28D101AE006DF00F4023C /* GCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1918F99C810095C089 /* GCDWebServerConnection.m */; };
-		CEE28D111AE006E200F4023C /* GCDWebServerFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1A18F99C810095C089 /* GCDWebServerFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D121AE006E300F4023C /* GCDWebServerFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1A18F99C810095C089 /* GCDWebServerFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D131AE006E900F4023C /* GCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1B18F99C810095C089 /* GCDWebServerFunctions.m */; };
-		CEE28D141AE006EA00F4023C /* GCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1B18F99C810095C089 /* GCDWebServerFunctions.m */; };
-		CEE28D151AE006ED00F4023C /* GCDWebServerHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1C18F99C810095C089 /* GCDWebServerHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D161AE006EE00F4023C /* GCDWebServerHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1C18F99C810095C089 /* GCDWebServerHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D191AE006FD00F4023C /* GCDWebServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1E18F99C810095C089 /* GCDWebServerRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D1A1AE006FD00F4023C /* GCDWebServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1E18F99C810095C089 /* GCDWebServerRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D1B1AE0070300F4023C /* GCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1F18F99C810095C089 /* GCDWebServerRequest.m */; };
-		CEE28D1C1AE0070400F4023C /* GCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1F18F99C810095C089 /* GCDWebServerRequest.m */; };
-		CEE28D1D1AE0070600F4023C /* GCDWebServerResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2018F99C810095C089 /* GCDWebServerResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D1E1AE0070700F4023C /* GCDWebServerResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2018F99C810095C089 /* GCDWebServerResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D1F1AE0070D00F4023C /* GCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2118F99C810095C089 /* GCDWebServerResponse.m */; };
-		CEE28D201AE0070E00F4023C /* GCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2118F99C810095C089 /* GCDWebServerResponse.m */; };
-		CEE28D211AE0071200F4023C /* GCDWebServerDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2318F99C810095C089 /* GCDWebServerDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D221AE0071300F4023C /* GCDWebServerDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2318F99C810095C089 /* GCDWebServerDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D231AE0071A00F4023C /* GCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2418F99C810095C089 /* GCDWebServerDataRequest.m */; };
-		CEE28D241AE0071B00F4023C /* GCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2418F99C810095C089 /* GCDWebServerDataRequest.m */; };
-		CEE28D251AE0071E00F4023C /* GCDWebServerFileRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2518F99C810095C089 /* GCDWebServerFileRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D261AE0071E00F4023C /* GCDWebServerFileRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2518F99C810095C089 /* GCDWebServerFileRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D271AE0072400F4023C /* GCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2618F99C810095C089 /* GCDWebServerFileRequest.m */; };
-		CEE28D281AE0072400F4023C /* GCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2618F99C810095C089 /* GCDWebServerFileRequest.m */; };
-		CEE28D291AE0072800F4023C /* GCDWebServerMultiPartFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2718F99C810095C089 /* GCDWebServerMultiPartFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D2A1AE0072800F4023C /* GCDWebServerMultiPartFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2718F99C810095C089 /* GCDWebServerMultiPartFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D2B1AE0073000F4023C /* GCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2818F99C810095C089 /* GCDWebServerMultiPartFormRequest.m */; };
-		CEE28D2C1AE0073000F4023C /* GCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2818F99C810095C089 /* GCDWebServerMultiPartFormRequest.m */; };
-		CEE28D2D1AE0073300F4023C /* GCDWebServerURLEncodedFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2918F99C810095C089 /* GCDWebServerURLEncodedFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D2E1AE0073400F4023C /* GCDWebServerURLEncodedFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2918F99C810095C089 /* GCDWebServerURLEncodedFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D2F1AE0073C00F4023C /* GCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2A18F99C810095C089 /* GCDWebServerURLEncodedFormRequest.m */; };
-		CEE28D301AE0073C00F4023C /* GCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2A18F99C810095C089 /* GCDWebServerURLEncodedFormRequest.m */; };
-		CEE28D311AE0074200F4023C /* GCDWebServerDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2C18F99C810095C089 /* GCDWebServerDataResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D321AE0074200F4023C /* GCDWebServerDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2C18F99C810095C089 /* GCDWebServerDataResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D331AE0074900F4023C /* GCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2D18F99C810095C089 /* GCDWebServerDataResponse.m */; };
-		CEE28D341AE0074A00F4023C /* GCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2D18F99C810095C089 /* GCDWebServerDataResponse.m */; };
-		CEE28D351AE0074D00F4023C /* GCDWebServerErrorResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2E18F99C810095C089 /* GCDWebServerErrorResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D361AE0074E00F4023C /* GCDWebServerErrorResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2E18F99C810095C089 /* GCDWebServerErrorResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D371AE0075900F4023C /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2F18F99C810095C089 /* GCDWebServerErrorResponse.m */; };
-		CEE28D381AE0075900F4023C /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2F18F99C810095C089 /* GCDWebServerErrorResponse.m */; };
-		CEE28D391AE0075C00F4023C /* GCDWebServerFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3018F99C810095C089 /* GCDWebServerFileResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D3A1AE0075D00F4023C /* GCDWebServerFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3018F99C810095C089 /* GCDWebServerFileResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D3B1AE0076400F4023C /* GCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3118F99C810095C089 /* GCDWebServerFileResponse.m */; };
-		CEE28D3C1AE0076400F4023C /* GCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3118F99C810095C089 /* GCDWebServerFileResponse.m */; };
-		CEE28D3D1AE0076700F4023C /* GCDWebServerStreamedResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3218F99C810095C089 /* GCDWebServerStreamedResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D3E1AE0076800F4023C /* GCDWebServerStreamedResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3218F99C810095C089 /* GCDWebServerStreamedResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEE28D3F1AE0076E00F4023C /* GCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3318F99C810095C089 /* GCDWebServerStreamedResponse.m */; };
-		CEE28D401AE0076F00F4023C /* GCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3318F99C810095C089 /* GCDWebServerStreamedResponse.m */; };
+		CEE28D0D1AE006D700F4023C /* MyGCDWebServerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1818F99C810095C089 /* MyGCDWebServerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D0E1AE006D800F4023C /* MyGCDWebServerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1818F99C810095C089 /* MyGCDWebServerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D0F1AE006DE00F4023C /* MyGCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1918F99C810095C089 /* MyGCDWebServerConnection.m */; };
+		CEE28D101AE006DF00F4023C /* MyGCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1918F99C810095C089 /* MyGCDWebServerConnection.m */; };
+		CEE28D111AE006E200F4023C /* MyGCDWebServerFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1A18F99C810095C089 /* MyGCDWebServerFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D121AE006E300F4023C /* MyGCDWebServerFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1A18F99C810095C089 /* MyGCDWebServerFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D131AE006E900F4023C /* MyGCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1B18F99C810095C089 /* MyGCDWebServerFunctions.m */; };
+		CEE28D141AE006EA00F4023C /* MyGCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1B18F99C810095C089 /* MyGCDWebServerFunctions.m */; };
+		CEE28D151AE006ED00F4023C /* MyGCDWebServerHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1C18F99C810095C089 /* MyGCDWebServerHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D161AE006EE00F4023C /* MyGCDWebServerHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1C18F99C810095C089 /* MyGCDWebServerHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D191AE006FD00F4023C /* MyGCDWebServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1E18F99C810095C089 /* MyGCDWebServerRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D1A1AE006FD00F4023C /* MyGCDWebServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1E18F99C810095C089 /* MyGCDWebServerRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D1B1AE0070300F4023C /* MyGCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1F18F99C810095C089 /* MyGCDWebServerRequest.m */; };
+		CEE28D1C1AE0070400F4023C /* MyGCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1F18F99C810095C089 /* MyGCDWebServerRequest.m */; };
+		CEE28D1D1AE0070600F4023C /* MyGCDWebServerResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2018F99C810095C089 /* MyGCDWebServerResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D1E1AE0070700F4023C /* MyGCDWebServerResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2018F99C810095C089 /* MyGCDWebServerResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D1F1AE0070D00F4023C /* MyGCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2118F99C810095C089 /* MyGCDWebServerResponse.m */; };
+		CEE28D201AE0070E00F4023C /* MyGCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2118F99C810095C089 /* MyGCDWebServerResponse.m */; };
+		CEE28D211AE0071200F4023C /* MyGCDWebServerDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2318F99C810095C089 /* MyGCDWebServerDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D221AE0071300F4023C /* MyGCDWebServerDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2318F99C810095C089 /* MyGCDWebServerDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D231AE0071A00F4023C /* MyGCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2418F99C810095C089 /* MyGCDWebServerDataRequest.m */; };
+		CEE28D241AE0071B00F4023C /* MyGCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2418F99C810095C089 /* MyGCDWebServerDataRequest.m */; };
+		CEE28D251AE0071E00F4023C /* MyGCDWebServerFileRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2518F99C810095C089 /* MyGCDWebServerFileRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D261AE0071E00F4023C /* MyGCDWebServerFileRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2518F99C810095C089 /* MyGCDWebServerFileRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D271AE0072400F4023C /* MyGCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2618F99C810095C089 /* MyGCDWebServerFileRequest.m */; };
+		CEE28D281AE0072400F4023C /* MyGCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2618F99C810095C089 /* MyGCDWebServerFileRequest.m */; };
+		CEE28D291AE0072800F4023C /* MyGCDWebServerMultiPartFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2718F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D2A1AE0072800F4023C /* MyGCDWebServerMultiPartFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2718F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D2B1AE0073000F4023C /* MyGCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2818F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.m */; };
+		CEE28D2C1AE0073000F4023C /* MyGCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2818F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.m */; };
+		CEE28D2D1AE0073300F4023C /* MyGCDWebServerURLEncodedFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2918F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D2E1AE0073400F4023C /* MyGCDWebServerURLEncodedFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2918F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D2F1AE0073C00F4023C /* MyGCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2A18F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.m */; };
+		CEE28D301AE0073C00F4023C /* MyGCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2A18F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.m */; };
+		CEE28D311AE0074200F4023C /* MyGCDWebServerDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2C18F99C810095C089 /* MyGCDWebServerDataResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D321AE0074200F4023C /* MyGCDWebServerDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2C18F99C810095C089 /* MyGCDWebServerDataResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D331AE0074900F4023C /* MyGCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2D18F99C810095C089 /* MyGCDWebServerDataResponse.m */; };
+		CEE28D341AE0074A00F4023C /* MyGCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2D18F99C810095C089 /* MyGCDWebServerDataResponse.m */; };
+		CEE28D351AE0074D00F4023C /* MyGCDWebServerErrorResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2E18F99C810095C089 /* MyGCDWebServerErrorResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D361AE0074E00F4023C /* MyGCDWebServerErrorResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2E18F99C810095C089 /* MyGCDWebServerErrorResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D371AE0075900F4023C /* MyGCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2F18F99C810095C089 /* MyGCDWebServerErrorResponse.m */; };
+		CEE28D381AE0075900F4023C /* MyGCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2F18F99C810095C089 /* MyGCDWebServerErrorResponse.m */; };
+		CEE28D391AE0075C00F4023C /* MyGCDWebServerFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3018F99C810095C089 /* MyGCDWebServerFileResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D3A1AE0075D00F4023C /* MyGCDWebServerFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3018F99C810095C089 /* MyGCDWebServerFileResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D3B1AE0076400F4023C /* MyGCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3118F99C810095C089 /* MyGCDWebServerFileResponse.m */; };
+		CEE28D3C1AE0076400F4023C /* MyGCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3118F99C810095C089 /* MyGCDWebServerFileResponse.m */; };
+		CEE28D3D1AE0076700F4023C /* MyGCDWebServerStreamedResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3218F99C810095C089 /* MyGCDWebServerStreamedResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D3E1AE0076800F4023C /* MyGCDWebServerStreamedResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3218F99C810095C089 /* MyGCDWebServerStreamedResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE28D3F1AE0076E00F4023C /* MyGCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3318F99C810095C089 /* MyGCDWebServerStreamedResponse.m */; };
+		CEE28D401AE0076F00F4023C /* MyGCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3318F99C810095C089 /* MyGCDWebServerStreamedResponse.m */; };
 		CEE28D411AE0077800F4023C /* GCDWebDAVServer.h in Headers */ = {isa = PBXBuildFile; fileRef = E2A0E80818F3432600C580B1 /* GCDWebDAVServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEE28D421AE0077800F4023C /* GCDWebDAVServer.h in Headers */ = {isa = PBXBuildFile; fileRef = E2A0E80818F3432600C580B1 /* GCDWebDAVServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEE28D431AE0077F00F4023C /* GCDWebDAVServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A0E80918F3432600C580B1 /* GCDWebDAVServer.m */; };
@@ -109,52 +109,52 @@
 		E24A3C0E21E28D3C00C58878 /* GCDWebServers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CEE28CEF1AE0051F00F4023C /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E24A3C0F21E28EFB00C58878 /* GCDWebServers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E2DDD18B1BE69404002CE867 /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E28BAE3418F99C810095C089 /* MyGCDWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1718F99C810095C089 /* MyGCDWebServer.m */; };
-		E28BAE3618F99C810095C089 /* GCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1918F99C810095C089 /* GCDWebServerConnection.m */; };
-		E28BAE3818F99C810095C089 /* GCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1B18F99C810095C089 /* GCDWebServerFunctions.m */; };
-		E28BAE3A18F99C810095C089 /* GCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1F18F99C810095C089 /* GCDWebServerRequest.m */; };
-		E28BAE3C18F99C810095C089 /* GCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2118F99C810095C089 /* GCDWebServerResponse.m */; };
-		E28BAE3E18F99C810095C089 /* GCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2418F99C810095C089 /* GCDWebServerDataRequest.m */; };
-		E28BAE4018F99C810095C089 /* GCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2618F99C810095C089 /* GCDWebServerFileRequest.m */; };
-		E28BAE4218F99C810095C089 /* GCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2818F99C810095C089 /* GCDWebServerMultiPartFormRequest.m */; };
-		E28BAE4418F99C810095C089 /* GCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2A18F99C810095C089 /* GCDWebServerURLEncodedFormRequest.m */; };
-		E28BAE4618F99C810095C089 /* GCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2D18F99C810095C089 /* GCDWebServerDataResponse.m */; };
-		E28BAE4818F99C810095C089 /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2F18F99C810095C089 /* GCDWebServerErrorResponse.m */; };
-		E28BAE4A18F99C810095C089 /* GCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3118F99C810095C089 /* GCDWebServerFileResponse.m */; };
-		E28BAE4C18F99C810095C089 /* GCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3318F99C810095C089 /* GCDWebServerStreamedResponse.m */; };
+		E28BAE3618F99C810095C089 /* MyGCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1918F99C810095C089 /* MyGCDWebServerConnection.m */; };
+		E28BAE3818F99C810095C089 /* MyGCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1B18F99C810095C089 /* MyGCDWebServerFunctions.m */; };
+		E28BAE3A18F99C810095C089 /* MyGCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1F18F99C810095C089 /* MyGCDWebServerRequest.m */; };
+		E28BAE3C18F99C810095C089 /* MyGCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2118F99C810095C089 /* MyGCDWebServerResponse.m */; };
+		E28BAE3E18F99C810095C089 /* MyGCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2418F99C810095C089 /* MyGCDWebServerDataRequest.m */; };
+		E28BAE4018F99C810095C089 /* MyGCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2618F99C810095C089 /* MyGCDWebServerFileRequest.m */; };
+		E28BAE4218F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2818F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.m */; };
+		E28BAE4418F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2A18F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.m */; };
+		E28BAE4618F99C810095C089 /* MyGCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2D18F99C810095C089 /* MyGCDWebServerDataResponse.m */; };
+		E28BAE4818F99C810095C089 /* MyGCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2F18F99C810095C089 /* MyGCDWebServerErrorResponse.m */; };
+		E28BAE4A18F99C810095C089 /* MyGCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3118F99C810095C089 /* MyGCDWebServerFileResponse.m */; };
+		E28BAE4C18F99C810095C089 /* MyGCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3318F99C810095C089 /* MyGCDWebServerStreamedResponse.m */; };
 		E2A0E80A18F3432600C580B1 /* GCDWebDAVServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A0E80918F3432600C580B1 /* GCDWebDAVServer.m */; };
 		E2BE850C18E785940061360B /* GCDWebUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BE850918E77ECA0061360B /* GCDWebUploader.m */; };
 		E2BE850F18E788990061360B /* GCDWebUploader.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = E2BE850718E77ECA0061360B /* GCDWebUploader.bundle */; };
 		E2BE851118E79DAF0061360B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BE851018E79DAF0061360B /* SystemConfiguration.framework */; };
 		E2DDD1951BE69427002CE867 /* GCDWebUploader.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2BE850718E77ECA0061360B /* GCDWebUploader.bundle */; };
 		E2DDD1961BE6945F002CE867 /* MyGCDWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1718F99C810095C089 /* MyGCDWebServer.m */; };
-		E2DDD1971BE6945F002CE867 /* GCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1918F99C810095C089 /* GCDWebServerConnection.m */; };
-		E2DDD1981BE6945F002CE867 /* GCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1B18F99C810095C089 /* GCDWebServerFunctions.m */; };
-		E2DDD1991BE6945F002CE867 /* GCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1F18F99C810095C089 /* GCDWebServerRequest.m */; };
-		E2DDD19A1BE6945F002CE867 /* GCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2118F99C810095C089 /* GCDWebServerResponse.m */; };
-		E2DDD19B1BE6945F002CE867 /* GCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2418F99C810095C089 /* GCDWebServerDataRequest.m */; };
-		E2DDD19C1BE6945F002CE867 /* GCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2618F99C810095C089 /* GCDWebServerFileRequest.m */; };
-		E2DDD19D1BE6945F002CE867 /* GCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2818F99C810095C089 /* GCDWebServerMultiPartFormRequest.m */; };
-		E2DDD19E1BE6945F002CE867 /* GCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2A18F99C810095C089 /* GCDWebServerURLEncodedFormRequest.m */; };
-		E2DDD19F1BE6945F002CE867 /* GCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2D18F99C810095C089 /* GCDWebServerDataResponse.m */; };
-		E2DDD1A01BE6945F002CE867 /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2F18F99C810095C089 /* GCDWebServerErrorResponse.m */; };
-		E2DDD1A11BE6945F002CE867 /* GCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3118F99C810095C089 /* GCDWebServerFileResponse.m */; };
-		E2DDD1A21BE6945F002CE867 /* GCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3318F99C810095C089 /* GCDWebServerStreamedResponse.m */; };
+		E2DDD1971BE6945F002CE867 /* MyGCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1918F99C810095C089 /* MyGCDWebServerConnection.m */; };
+		E2DDD1981BE6945F002CE867 /* MyGCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1B18F99C810095C089 /* MyGCDWebServerFunctions.m */; };
+		E2DDD1991BE6945F002CE867 /* MyGCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE1F18F99C810095C089 /* MyGCDWebServerRequest.m */; };
+		E2DDD19A1BE6945F002CE867 /* MyGCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2118F99C810095C089 /* MyGCDWebServerResponse.m */; };
+		E2DDD19B1BE6945F002CE867 /* MyGCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2418F99C810095C089 /* MyGCDWebServerDataRequest.m */; };
+		E2DDD19C1BE6945F002CE867 /* MyGCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2618F99C810095C089 /* MyGCDWebServerFileRequest.m */; };
+		E2DDD19D1BE6945F002CE867 /* MyGCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2818F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.m */; };
+		E2DDD19E1BE6945F002CE867 /* MyGCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2A18F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.m */; };
+		E2DDD19F1BE6945F002CE867 /* MyGCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2D18F99C810095C089 /* MyGCDWebServerDataResponse.m */; };
+		E2DDD1A01BE6945F002CE867 /* MyGCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE2F18F99C810095C089 /* MyGCDWebServerErrorResponse.m */; };
+		E2DDD1A11BE6945F002CE867 /* MyGCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3118F99C810095C089 /* MyGCDWebServerFileResponse.m */; };
+		E2DDD1A21BE6945F002CE867 /* MyGCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BAE3318F99C810095C089 /* MyGCDWebServerStreamedResponse.m */; };
 		E2DDD1A31BE6945F002CE867 /* GCDWebDAVServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A0E80918F3432600C580B1 /* GCDWebDAVServer.m */; };
 		E2DDD1A41BE6945F002CE867 /* GCDWebUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BE850918E77ECA0061360B /* GCDWebUploader.m */; };
 		E2DDD1A51BE6947F002CE867 /* MyGCDWebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1618F99C810095C089 /* MyGCDWebServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1A61BE6947F002CE867 /* GCDWebServerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1818F99C810095C089 /* GCDWebServerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1A71BE6947F002CE867 /* GCDWebServerFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1A18F99C810095C089 /* GCDWebServerFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1A81BE6947F002CE867 /* GCDWebServerHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1C18F99C810095C089 /* GCDWebServerHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1A91BE6947F002CE867 /* GCDWebServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1E18F99C810095C089 /* GCDWebServerRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1AA1BE6947F002CE867 /* GCDWebServerResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2018F99C810095C089 /* GCDWebServerResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1AB1BE6947F002CE867 /* GCDWebServerDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2318F99C810095C089 /* GCDWebServerDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1AC1BE6947F002CE867 /* GCDWebServerFileRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2518F99C810095C089 /* GCDWebServerFileRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1AD1BE6947F002CE867 /* GCDWebServerMultiPartFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2718F99C810095C089 /* GCDWebServerMultiPartFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1AE1BE6947F002CE867 /* GCDWebServerURLEncodedFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2918F99C810095C089 /* GCDWebServerURLEncodedFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1AF1BE6947F002CE867 /* GCDWebServerDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2C18F99C810095C089 /* GCDWebServerDataResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1B01BE6947F002CE867 /* GCDWebServerErrorResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2E18F99C810095C089 /* GCDWebServerErrorResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1B11BE6947F002CE867 /* GCDWebServerFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3018F99C810095C089 /* GCDWebServerFileResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2DDD1B21BE6947F002CE867 /* GCDWebServerStreamedResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3218F99C810095C089 /* GCDWebServerStreamedResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1A61BE6947F002CE867 /* MyGCDWebServerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1818F99C810095C089 /* MyGCDWebServerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1A71BE6947F002CE867 /* MyGCDWebServerFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1A18F99C810095C089 /* MyGCDWebServerFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1A81BE6947F002CE867 /* MyGCDWebServerHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1C18F99C810095C089 /* MyGCDWebServerHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1A91BE6947F002CE867 /* MyGCDWebServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE1E18F99C810095C089 /* MyGCDWebServerRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1AA1BE6947F002CE867 /* MyGCDWebServerResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2018F99C810095C089 /* MyGCDWebServerResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1AB1BE6947F002CE867 /* MyGCDWebServerDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2318F99C810095C089 /* MyGCDWebServerDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1AC1BE6947F002CE867 /* MyGCDWebServerFileRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2518F99C810095C089 /* MyGCDWebServerFileRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1AD1BE6947F002CE867 /* MyGCDWebServerMultiPartFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2718F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1AE1BE6947F002CE867 /* MyGCDWebServerURLEncodedFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2918F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1AF1BE6947F002CE867 /* MyGCDWebServerDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2C18F99C810095C089 /* MyGCDWebServerDataResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1B01BE6947F002CE867 /* MyGCDWebServerErrorResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE2E18F99C810095C089 /* MyGCDWebServerErrorResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1B11BE6947F002CE867 /* MyGCDWebServerFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3018F99C810095C089 /* MyGCDWebServerFileResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2DDD1B21BE6947F002CE867 /* MyGCDWebServerStreamedResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = E28BAE3218F99C810095C089 /* MyGCDWebServerStreamedResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2DDD1B31BE6947F002CE867 /* GCDWebDAVServer.h in Headers */ = {isa = PBXBuildFile; fileRef = E2A0E80818F3432600C580B1 /* GCDWebDAVServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2DDD1B41BE6947F002CE867 /* GCDWebUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = E2BE850818E77ECA0061360B /* GCDWebUploader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2DDD1B51BE6947F002CE867 /* GCDWebServers.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE28CF31AE0051F00F4023C /* GCDWebServers.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -299,32 +299,32 @@
 		E24A3C4021E2940600C58878 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E28BAE1618F99C810095C089 /* MyGCDWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServer.h; sourceTree = "<group>"; };
 		E28BAE1718F99C810095C089 /* MyGCDWebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServer.m; sourceTree = "<group>"; };
-		E28BAE1818F99C810095C089 /* GCDWebServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerConnection.h; sourceTree = "<group>"; };
-		E28BAE1918F99C810095C089 /* GCDWebServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerConnection.m; sourceTree = "<group>"; };
-		E28BAE1A18F99C810095C089 /* GCDWebServerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFunctions.h; sourceTree = "<group>"; };
-		E28BAE1B18F99C810095C089 /* GCDWebServerFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFunctions.m; sourceTree = "<group>"; };
-		E28BAE1C18F99C810095C089 /* GCDWebServerHTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerHTTPStatusCodes.h; sourceTree = "<group>"; };
-		E28BAE1D18F99C810095C089 /* GCDWebServerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerPrivate.h; sourceTree = "<group>"; };
-		E28BAE1E18F99C810095C089 /* GCDWebServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerRequest.h; sourceTree = "<group>"; };
-		E28BAE1F18F99C810095C089 /* GCDWebServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerRequest.m; sourceTree = "<group>"; };
-		E28BAE2018F99C810095C089 /* GCDWebServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerResponse.h; sourceTree = "<group>"; };
-		E28BAE2118F99C810095C089 /* GCDWebServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerResponse.m; sourceTree = "<group>"; };
-		E28BAE2318F99C810095C089 /* GCDWebServerDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerDataRequest.h; sourceTree = "<group>"; };
-		E28BAE2418F99C810095C089 /* GCDWebServerDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerDataRequest.m; sourceTree = "<group>"; };
-		E28BAE2518F99C810095C089 /* GCDWebServerFileRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFileRequest.h; sourceTree = "<group>"; };
-		E28BAE2618F99C810095C089 /* GCDWebServerFileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFileRequest.m; sourceTree = "<group>"; };
-		E28BAE2718F99C810095C089 /* GCDWebServerMultiPartFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerMultiPartFormRequest.h; sourceTree = "<group>"; };
-		E28BAE2818F99C810095C089 /* GCDWebServerMultiPartFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerMultiPartFormRequest.m; sourceTree = "<group>"; };
-		E28BAE2918F99C810095C089 /* GCDWebServerURLEncodedFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerURLEncodedFormRequest.h; sourceTree = "<group>"; };
-		E28BAE2A18F99C810095C089 /* GCDWebServerURLEncodedFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerURLEncodedFormRequest.m; sourceTree = "<group>"; };
-		E28BAE2C18F99C810095C089 /* GCDWebServerDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerDataResponse.h; sourceTree = "<group>"; };
-		E28BAE2D18F99C810095C089 /* GCDWebServerDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerDataResponse.m; sourceTree = "<group>"; };
-		E28BAE2E18F99C810095C089 /* GCDWebServerErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerErrorResponse.h; sourceTree = "<group>"; };
-		E28BAE2F18F99C810095C089 /* GCDWebServerErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerErrorResponse.m; sourceTree = "<group>"; };
-		E28BAE3018F99C810095C089 /* GCDWebServerFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFileResponse.h; sourceTree = "<group>"; };
-		E28BAE3118F99C810095C089 /* GCDWebServerFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFileResponse.m; sourceTree = "<group>"; };
-		E28BAE3218F99C810095C089 /* GCDWebServerStreamedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerStreamedResponse.h; sourceTree = "<group>"; };
-		E28BAE3318F99C810095C089 /* GCDWebServerStreamedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerStreamedResponse.m; sourceTree = "<group>"; };
+		E28BAE1818F99C810095C089 /* MyGCDWebServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerConnection.h; sourceTree = "<group>"; };
+		E28BAE1918F99C810095C089 /* MyGCDWebServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerConnection.m; sourceTree = "<group>"; };
+		E28BAE1A18F99C810095C089 /* MyGCDWebServerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerFunctions.h; sourceTree = "<group>"; };
+		E28BAE1B18F99C810095C089 /* MyGCDWebServerFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerFunctions.m; sourceTree = "<group>"; };
+		E28BAE1C18F99C810095C089 /* MyGCDWebServerHTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerHTTPStatusCodes.h; sourceTree = "<group>"; };
+		E28BAE1D18F99C810095C089 /* MyGCDWebServerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerPrivate.h; sourceTree = "<group>"; };
+		E28BAE1E18F99C810095C089 /* MyGCDWebServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerRequest.h; sourceTree = "<group>"; };
+		E28BAE1F18F99C810095C089 /* MyGCDWebServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerRequest.m; sourceTree = "<group>"; };
+		E28BAE2018F99C810095C089 /* MyGCDWebServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerResponse.h; sourceTree = "<group>"; };
+		E28BAE2118F99C810095C089 /* MyGCDWebServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerResponse.m; sourceTree = "<group>"; };
+		E28BAE2318F99C810095C089 /* MyGCDWebServerDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerDataRequest.h; sourceTree = "<group>"; };
+		E28BAE2418F99C810095C089 /* MyGCDWebServerDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerDataRequest.m; sourceTree = "<group>"; };
+		E28BAE2518F99C810095C089 /* MyGCDWebServerFileRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerFileRequest.h; sourceTree = "<group>"; };
+		E28BAE2618F99C810095C089 /* MyGCDWebServerFileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerFileRequest.m; sourceTree = "<group>"; };
+		E28BAE2718F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerMultiPartFormRequest.h; sourceTree = "<group>"; };
+		E28BAE2818F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerMultiPartFormRequest.m; sourceTree = "<group>"; };
+		E28BAE2918F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerURLEncodedFormRequest.h; sourceTree = "<group>"; };
+		E28BAE2A18F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerURLEncodedFormRequest.m; sourceTree = "<group>"; };
+		E28BAE2C18F99C810095C089 /* MyGCDWebServerDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerDataResponse.h; sourceTree = "<group>"; };
+		E28BAE2D18F99C810095C089 /* MyGCDWebServerDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerDataResponse.m; sourceTree = "<group>"; };
+		E28BAE2E18F99C810095C089 /* MyGCDWebServerErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerErrorResponse.h; sourceTree = "<group>"; };
+		E28BAE2F18F99C810095C089 /* MyGCDWebServerErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerErrorResponse.m; sourceTree = "<group>"; };
+		E28BAE3018F99C810095C089 /* MyGCDWebServerFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerFileResponse.h; sourceTree = "<group>"; };
+		E28BAE3118F99C810095C089 /* MyGCDWebServerFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerFileResponse.m; sourceTree = "<group>"; };
+		E28BAE3218F99C810095C089 /* MyGCDWebServerStreamedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGCDWebServerStreamedResponse.h; sourceTree = "<group>"; };
+		E28BAE3318F99C810095C089 /* MyGCDWebServerStreamedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGCDWebServerStreamedResponse.m; sourceTree = "<group>"; };
 		E2A0E80818F3432600C580B1 /* GCDWebDAVServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebDAVServer.h; sourceTree = "<group>"; };
 		E2A0E80918F3432600C580B1 /* GCDWebDAVServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebDAVServer.m; sourceTree = "<group>"; };
 		E2BE850718E77ECA0061360B /* GCDWebUploader.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GCDWebUploader.bundle; sourceTree = "<group>"; };
@@ -436,7 +436,7 @@
 		08FB7794FE84155DC02AAC07 /* LittleCMS */ = {
 			isa = PBXGroup;
 			children = (
-				E28BAE1418F99C810095C089 /* GCDWebServer */,
+				E28BAE1418F99C810095C089 /* MyGCDWebServer */,
 				E2A0E80718F3432600C580B1 /* GCDWebDAVServer */,
 				E2BE850618E77ECA0061360B /* GCDWebUploader */,
 				CEE28D081AE0053E00F4023C /* Frameworks */,
@@ -511,14 +511,14 @@
 			name = "Mac Frameworks and Libraries";
 			sourceTree = "<group>";
 		};
-		E28BAE1418F99C810095C089 /* GCDWebServer */ = {
+		E28BAE1418F99C810095C089 /* MyGCDWebServer */ = {
 			isa = PBXGroup;
 			children = (
 				E28BAE1518F99C810095C089 /* Core */,
 				E28BAE2218F99C810095C089 /* Requests */,
 				E28BAE2B18F99C810095C089 /* Responses */,
 			);
-			path = GCDWebServer;
+			path = MyGCDWebServer;
 			sourceTree = "<group>";
 		};
 		E28BAE1518F99C810095C089 /* Core */ = {
@@ -526,16 +526,16 @@
 			children = (
 				E28BAE1618F99C810095C089 /* MyGCDWebServer.h */,
 				E28BAE1718F99C810095C089 /* MyGCDWebServer.m */,
-				E28BAE1818F99C810095C089 /* GCDWebServerConnection.h */,
-				E28BAE1918F99C810095C089 /* GCDWebServerConnection.m */,
-				E28BAE1A18F99C810095C089 /* GCDWebServerFunctions.h */,
-				E28BAE1B18F99C810095C089 /* GCDWebServerFunctions.m */,
-				E28BAE1C18F99C810095C089 /* GCDWebServerHTTPStatusCodes.h */,
-				E28BAE1D18F99C810095C089 /* GCDWebServerPrivate.h */,
-				E28BAE1E18F99C810095C089 /* GCDWebServerRequest.h */,
-				E28BAE1F18F99C810095C089 /* GCDWebServerRequest.m */,
-				E28BAE2018F99C810095C089 /* GCDWebServerResponse.h */,
-				E28BAE2118F99C810095C089 /* GCDWebServerResponse.m */,
+				E28BAE1818F99C810095C089 /* MyGCDWebServerConnection.h */,
+				E28BAE1918F99C810095C089 /* MyGCDWebServerConnection.m */,
+				E28BAE1A18F99C810095C089 /* MyGCDWebServerFunctions.h */,
+				E28BAE1B18F99C810095C089 /* MyGCDWebServerFunctions.m */,
+				E28BAE1C18F99C810095C089 /* MyGCDWebServerHTTPStatusCodes.h */,
+				E28BAE1D18F99C810095C089 /* MyGCDWebServerPrivate.h */,
+				E28BAE1E18F99C810095C089 /* MyGCDWebServerRequest.h */,
+				E28BAE1F18F99C810095C089 /* MyGCDWebServerRequest.m */,
+				E28BAE2018F99C810095C089 /* MyGCDWebServerResponse.h */,
+				E28BAE2118F99C810095C089 /* MyGCDWebServerResponse.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -543,14 +543,14 @@
 		E28BAE2218F99C810095C089 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				E28BAE2318F99C810095C089 /* GCDWebServerDataRequest.h */,
-				E28BAE2418F99C810095C089 /* GCDWebServerDataRequest.m */,
-				E28BAE2518F99C810095C089 /* GCDWebServerFileRequest.h */,
-				E28BAE2618F99C810095C089 /* GCDWebServerFileRequest.m */,
-				E28BAE2718F99C810095C089 /* GCDWebServerMultiPartFormRequest.h */,
-				E28BAE2818F99C810095C089 /* GCDWebServerMultiPartFormRequest.m */,
-				E28BAE2918F99C810095C089 /* GCDWebServerURLEncodedFormRequest.h */,
-				E28BAE2A18F99C810095C089 /* GCDWebServerURLEncodedFormRequest.m */,
+				E28BAE2318F99C810095C089 /* MyGCDWebServerDataRequest.h */,
+				E28BAE2418F99C810095C089 /* MyGCDWebServerDataRequest.m */,
+				E28BAE2518F99C810095C089 /* MyGCDWebServerFileRequest.h */,
+				E28BAE2618F99C810095C089 /* MyGCDWebServerFileRequest.m */,
+				E28BAE2718F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.h */,
+				E28BAE2818F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.m */,
+				E28BAE2918F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.h */,
+				E28BAE2A18F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.m */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -558,14 +558,14 @@
 		E28BAE2B18F99C810095C089 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				E28BAE2C18F99C810095C089 /* GCDWebServerDataResponse.h */,
-				E28BAE2D18F99C810095C089 /* GCDWebServerDataResponse.m */,
-				E28BAE2E18F99C810095C089 /* GCDWebServerErrorResponse.h */,
-				E28BAE2F18F99C810095C089 /* GCDWebServerErrorResponse.m */,
-				E28BAE3018F99C810095C089 /* GCDWebServerFileResponse.h */,
-				E28BAE3118F99C810095C089 /* GCDWebServerFileResponse.m */,
-				E28BAE3218F99C810095C089 /* GCDWebServerStreamedResponse.h */,
-				E28BAE3318F99C810095C089 /* GCDWebServerStreamedResponse.m */,
+				E28BAE2C18F99C810095C089 /* MyGCDWebServerDataResponse.h */,
+				E28BAE2D18F99C810095C089 /* MyGCDWebServerDataResponse.m */,
+				E28BAE2E18F99C810095C089 /* MyGCDWebServerErrorResponse.h */,
+				E28BAE2F18F99C810095C089 /* MyGCDWebServerErrorResponse.m */,
+				E28BAE3018F99C810095C089 /* MyGCDWebServerFileResponse.h */,
+				E28BAE3118F99C810095C089 /* MyGCDWebServerFileResponse.m */,
+				E28BAE3218F99C810095C089 /* MyGCDWebServerStreamedResponse.h */,
+				E28BAE3318F99C810095C089 /* MyGCDWebServerStreamedResponse.m */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -634,20 +634,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE28D521AE00A7A00F4023C /* GCDWebServers.h in Headers */,
-				CEE28D151AE006ED00F4023C /* GCDWebServerHTTPStatusCodes.h in Headers */,
-				CEE28D191AE006FD00F4023C /* GCDWebServerRequest.h in Headers */,
+				CEE28D151AE006ED00F4023C /* MyGCDWebServerHTTPStatusCodes.h in Headers */,
+				CEE28D191AE006FD00F4023C /* MyGCDWebServerRequest.h in Headers */,
 				CEE28D091AE006C200F4023C /* MyGCDWebServer.h in Headers */,
-				CEE28D351AE0074D00F4023C /* GCDWebServerErrorResponse.h in Headers */,
-				CEE28D2D1AE0073300F4023C /* GCDWebServerURLEncodedFormRequest.h in Headers */,
-				CEE28D1D1AE0070600F4023C /* GCDWebServerResponse.h in Headers */,
-				CEE28D391AE0075C00F4023C /* GCDWebServerFileResponse.h in Headers */,
-				CEE28D291AE0072800F4023C /* GCDWebServerMultiPartFormRequest.h in Headers */,
-				CEE28D3D1AE0076700F4023C /* GCDWebServerStreamedResponse.h in Headers */,
-				CEE28D0D1AE006D700F4023C /* GCDWebServerConnection.h in Headers */,
-				CEE28D211AE0071200F4023C /* GCDWebServerDataRequest.h in Headers */,
-				CEE28D311AE0074200F4023C /* GCDWebServerDataResponse.h in Headers */,
-				CEE28D111AE006E200F4023C /* GCDWebServerFunctions.h in Headers */,
-				CEE28D251AE0071E00F4023C /* GCDWebServerFileRequest.h in Headers */,
+				CEE28D351AE0074D00F4023C /* MyGCDWebServerErrorResponse.h in Headers */,
+				CEE28D2D1AE0073300F4023C /* MyGCDWebServerURLEncodedFormRequest.h in Headers */,
+				CEE28D1D1AE0070600F4023C /* MyGCDWebServerResponse.h in Headers */,
+				CEE28D391AE0075C00F4023C /* MyGCDWebServerFileResponse.h in Headers */,
+				CEE28D291AE0072800F4023C /* MyGCDWebServerMultiPartFormRequest.h in Headers */,
+				CEE28D3D1AE0076700F4023C /* MyGCDWebServerStreamedResponse.h in Headers */,
+				CEE28D0D1AE006D700F4023C /* MyGCDWebServerConnection.h in Headers */,
+				CEE28D211AE0071200F4023C /* MyGCDWebServerDataRequest.h in Headers */,
+				CEE28D311AE0074200F4023C /* MyGCDWebServerDataResponse.h in Headers */,
+				CEE28D111AE006E200F4023C /* MyGCDWebServerFunctions.h in Headers */,
+				CEE28D251AE0071E00F4023C /* MyGCDWebServerFileRequest.h in Headers */,
 				CEE28D411AE0077800F4023C /* GCDWebDAVServer.h in Headers */,
 				CEE28D471AE0078A00F4023C /* GCDWebUploader.h in Headers */,
 			);
@@ -658,20 +658,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE28CF41AE0051F00F4023C /* GCDWebServers.h in Headers */,
-				CEE28D261AE0071E00F4023C /* GCDWebServerFileRequest.h in Headers */,
-				CEE28D321AE0074200F4023C /* GCDWebServerDataResponse.h in Headers */,
-				CEE28D121AE006E300F4023C /* GCDWebServerFunctions.h in Headers */,
-				CEE28D221AE0071300F4023C /* GCDWebServerDataRequest.h in Headers */,
-				CEE28D1A1AE006FD00F4023C /* GCDWebServerRequest.h in Headers */,
-				CEE28D0E1AE006D800F4023C /* GCDWebServerConnection.h in Headers */,
-				CEE28D161AE006EE00F4023C /* GCDWebServerHTTPStatusCodes.h in Headers */,
-				CEE28D3A1AE0075D00F4023C /* GCDWebServerFileResponse.h in Headers */,
-				CEE28D2A1AE0072800F4023C /* GCDWebServerMultiPartFormRequest.h in Headers */,
-				CEE28D3E1AE0076800F4023C /* GCDWebServerStreamedResponse.h in Headers */,
-				CEE28D1E1AE0070700F4023C /* GCDWebServerResponse.h in Headers */,
-				CEE28D2E1AE0073400F4023C /* GCDWebServerURLEncodedFormRequest.h in Headers */,
+				CEE28D261AE0071E00F4023C /* MyGCDWebServerFileRequest.h in Headers */,
+				CEE28D321AE0074200F4023C /* MyGCDWebServerDataResponse.h in Headers */,
+				CEE28D121AE006E300F4023C /* MyGCDWebServerFunctions.h in Headers */,
+				CEE28D221AE0071300F4023C /* MyGCDWebServerDataRequest.h in Headers */,
+				CEE28D1A1AE006FD00F4023C /* MyGCDWebServerRequest.h in Headers */,
+				CEE28D0E1AE006D800F4023C /* MyGCDWebServerConnection.h in Headers */,
+				CEE28D161AE006EE00F4023C /* MyGCDWebServerHTTPStatusCodes.h in Headers */,
+				CEE28D3A1AE0075D00F4023C /* MyGCDWebServerFileResponse.h in Headers */,
+				CEE28D2A1AE0072800F4023C /* MyGCDWebServerMultiPartFormRequest.h in Headers */,
+				CEE28D3E1AE0076800F4023C /* MyGCDWebServerStreamedResponse.h in Headers */,
+				CEE28D1E1AE0070700F4023C /* MyGCDWebServerResponse.h in Headers */,
+				CEE28D2E1AE0073400F4023C /* MyGCDWebServerURLEncodedFormRequest.h in Headers */,
 				CEE28D0A1AE006C300F4023C /* MyGCDWebServer.h in Headers */,
-				CEE28D361AE0074E00F4023C /* GCDWebServerErrorResponse.h in Headers */,
+				CEE28D361AE0074E00F4023C /* MyGCDWebServerErrorResponse.h in Headers */,
 				CEE28D421AE0077800F4023C /* GCDWebDAVServer.h in Headers */,
 				CEE28D481AE0078B00F4023C /* GCDWebUploader.h in Headers */,
 			);
@@ -682,19 +682,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2DDD1A51BE6947F002CE867 /* MyGCDWebServer.h in Headers */,
-				E2DDD1A61BE6947F002CE867 /* GCDWebServerConnection.h in Headers */,
-				E2DDD1A71BE6947F002CE867 /* GCDWebServerFunctions.h in Headers */,
-				E2DDD1A81BE6947F002CE867 /* GCDWebServerHTTPStatusCodes.h in Headers */,
-				E2DDD1A91BE6947F002CE867 /* GCDWebServerRequest.h in Headers */,
-				E2DDD1AA1BE6947F002CE867 /* GCDWebServerResponse.h in Headers */,
-				E2DDD1AB1BE6947F002CE867 /* GCDWebServerDataRequest.h in Headers */,
-				E2DDD1AC1BE6947F002CE867 /* GCDWebServerFileRequest.h in Headers */,
-				E2DDD1AD1BE6947F002CE867 /* GCDWebServerMultiPartFormRequest.h in Headers */,
-				E2DDD1AE1BE6947F002CE867 /* GCDWebServerURLEncodedFormRequest.h in Headers */,
-				E2DDD1AF1BE6947F002CE867 /* GCDWebServerDataResponse.h in Headers */,
-				E2DDD1B01BE6947F002CE867 /* GCDWebServerErrorResponse.h in Headers */,
-				E2DDD1B11BE6947F002CE867 /* GCDWebServerFileResponse.h in Headers */,
-				E2DDD1B21BE6947F002CE867 /* GCDWebServerStreamedResponse.h in Headers */,
+				E2DDD1A61BE6947F002CE867 /* MyGCDWebServerConnection.h in Headers */,
+				E2DDD1A71BE6947F002CE867 /* MyGCDWebServerFunctions.h in Headers */,
+				E2DDD1A81BE6947F002CE867 /* MyGCDWebServerHTTPStatusCodes.h in Headers */,
+				E2DDD1A91BE6947F002CE867 /* MyGCDWebServerRequest.h in Headers */,
+				E2DDD1AA1BE6947F002CE867 /* MyGCDWebServerResponse.h in Headers */,
+				E2DDD1AB1BE6947F002CE867 /* MyGCDWebServerDataRequest.h in Headers */,
+				E2DDD1AC1BE6947F002CE867 /* MyGCDWebServerFileRequest.h in Headers */,
+				E2DDD1AD1BE6947F002CE867 /* MyGCDWebServerMultiPartFormRequest.h in Headers */,
+				E2DDD1AE1BE6947F002CE867 /* MyGCDWebServerURLEncodedFormRequest.h in Headers */,
+				E2DDD1AF1BE6947F002CE867 /* MyGCDWebServerDataResponse.h in Headers */,
+				E2DDD1B01BE6947F002CE867 /* MyGCDWebServerErrorResponse.h in Headers */,
+				E2DDD1B11BE6947F002CE867 /* MyGCDWebServerFileResponse.h in Headers */,
+				E2DDD1B21BE6947F002CE867 /* MyGCDWebServerStreamedResponse.h in Headers */,
 				E2DDD1B31BE6947F002CE867 /* GCDWebDAVServer.h in Headers */,
 				E2DDD1B41BE6947F002CE867 /* GCDWebUploader.h in Headers */,
 				E2DDD1B51BE6947F002CE867 /* GCDWebServers.h in Headers */,
@@ -954,22 +954,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E28BAE4618F99C810095C089 /* GCDWebServerDataResponse.m in Sources */,
-				E28BAE3818F99C810095C089 /* GCDWebServerFunctions.m in Sources */,
-				E28BAE4A18F99C810095C089 /* GCDWebServerFileResponse.m in Sources */,
-				E28BAE4418F99C810095C089 /* GCDWebServerURLEncodedFormRequest.m in Sources */,
-				E28BAE3A18F99C810095C089 /* GCDWebServerRequest.m in Sources */,
+				E28BAE4618F99C810095C089 /* MyGCDWebServerDataResponse.m in Sources */,
+				E28BAE3818F99C810095C089 /* MyGCDWebServerFunctions.m in Sources */,
+				E28BAE4A18F99C810095C089 /* MyGCDWebServerFileResponse.m in Sources */,
+				E28BAE4418F99C810095C089 /* MyGCDWebServerURLEncodedFormRequest.m in Sources */,
+				E28BAE3A18F99C810095C089 /* MyGCDWebServerRequest.m in Sources */,
 				E28BAE3418F99C810095C089 /* MyGCDWebServer.m in Sources */,
-				E28BAE3618F99C810095C089 /* GCDWebServerConnection.m in Sources */,
-				E28BAE3C18F99C810095C089 /* GCDWebServerResponse.m in Sources */,
-				E28BAE4018F99C810095C089 /* GCDWebServerFileRequest.m in Sources */,
-				E28BAE4C18F99C810095C089 /* GCDWebServerStreamedResponse.m in Sources */,
-				E28BAE3E18F99C810095C089 /* GCDWebServerDataRequest.m in Sources */,
+				E28BAE3618F99C810095C089 /* MyGCDWebServerConnection.m in Sources */,
+				E28BAE3C18F99C810095C089 /* MyGCDWebServerResponse.m in Sources */,
+				E28BAE4018F99C810095C089 /* MyGCDWebServerFileRequest.m in Sources */,
+				E28BAE4C18F99C810095C089 /* MyGCDWebServerStreamedResponse.m in Sources */,
+				E28BAE3E18F99C810095C089 /* MyGCDWebServerDataRequest.m in Sources */,
 				E2A0E80A18F3432600C580B1 /* GCDWebDAVServer.m in Sources */,
-				E28BAE4218F99C810095C089 /* GCDWebServerMultiPartFormRequest.m in Sources */,
+				E28BAE4218F99C810095C089 /* MyGCDWebServerMultiPartFormRequest.m in Sources */,
 				E2BE850C18E785940061360B /* GCDWebUploader.m in Sources */,
 				E221128F1690B6470048D2B2 /* main.m in Sources */,
-				E28BAE4818F99C810095C089 /* GCDWebServerErrorResponse.m in Sources */,
+				E28BAE4818F99C810095C089 /* MyGCDWebServerErrorResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -977,20 +977,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE28D1B1AE0070300F4023C /* GCDWebServerRequest.m in Sources */,
-				CEE28D2F1AE0073C00F4023C /* GCDWebServerURLEncodedFormRequest.m in Sources */,
-				CEE28D0F1AE006DE00F4023C /* GCDWebServerConnection.m in Sources */,
-				CEE28D231AE0071A00F4023C /* GCDWebServerDataRequest.m in Sources */,
-				CEE28D2B1AE0073000F4023C /* GCDWebServerMultiPartFormRequest.m in Sources */,
-				CEE28D271AE0072400F4023C /* GCDWebServerFileRequest.m in Sources */,
-				CEE28D1F1AE0070D00F4023C /* GCDWebServerResponse.m in Sources */,
-				CEE28D3B1AE0076400F4023C /* GCDWebServerFileResponse.m in Sources */,
-				CEE28D3F1AE0076E00F4023C /* GCDWebServerStreamedResponse.m in Sources */,
-				CEE28D331AE0074900F4023C /* GCDWebServerDataResponse.m in Sources */,
+				CEE28D1B1AE0070300F4023C /* MyGCDWebServerRequest.m in Sources */,
+				CEE28D2F1AE0073C00F4023C /* MyGCDWebServerURLEncodedFormRequest.m in Sources */,
+				CEE28D0F1AE006DE00F4023C /* MyGCDWebServerConnection.m in Sources */,
+				CEE28D231AE0071A00F4023C /* MyGCDWebServerDataRequest.m in Sources */,
+				CEE28D2B1AE0073000F4023C /* MyGCDWebServerMultiPartFormRequest.m in Sources */,
+				CEE28D271AE0072400F4023C /* MyGCDWebServerFileRequest.m in Sources */,
+				CEE28D1F1AE0070D00F4023C /* MyGCDWebServerResponse.m in Sources */,
+				CEE28D3B1AE0076400F4023C /* MyGCDWebServerFileResponse.m in Sources */,
+				CEE28D3F1AE0076E00F4023C /* MyGCDWebServerStreamedResponse.m in Sources */,
+				CEE28D331AE0074900F4023C /* MyGCDWebServerDataResponse.m in Sources */,
 				CEE28D431AE0077F00F4023C /* GCDWebDAVServer.m in Sources */,
 				CEE28D0B1AE006CC00F4023C /* MyGCDWebServer.m in Sources */,
-				CEE28D131AE006E900F4023C /* GCDWebServerFunctions.m in Sources */,
-				CEE28D371AE0075900F4023C /* GCDWebServerErrorResponse.m in Sources */,
+				CEE28D131AE006E900F4023C /* MyGCDWebServerFunctions.m in Sources */,
+				CEE28D371AE0075900F4023C /* MyGCDWebServerErrorResponse.m in Sources */,
 				CEE28D491AE0079100F4023C /* GCDWebUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -999,20 +999,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE28D1C1AE0070400F4023C /* GCDWebServerRequest.m in Sources */,
-				CEE28D301AE0073C00F4023C /* GCDWebServerURLEncodedFormRequest.m in Sources */,
-				CEE28D101AE006DF00F4023C /* GCDWebServerConnection.m in Sources */,
-				CEE28D241AE0071B00F4023C /* GCDWebServerDataRequest.m in Sources */,
-				CEE28D2C1AE0073000F4023C /* GCDWebServerMultiPartFormRequest.m in Sources */,
-				CEE28D281AE0072400F4023C /* GCDWebServerFileRequest.m in Sources */,
-				CEE28D201AE0070E00F4023C /* GCDWebServerResponse.m in Sources */,
-				CEE28D3C1AE0076400F4023C /* GCDWebServerFileResponse.m in Sources */,
-				CEE28D401AE0076F00F4023C /* GCDWebServerStreamedResponse.m in Sources */,
-				CEE28D341AE0074A00F4023C /* GCDWebServerDataResponse.m in Sources */,
+				CEE28D1C1AE0070400F4023C /* MyGCDWebServerRequest.m in Sources */,
+				CEE28D301AE0073C00F4023C /* MyGCDWebServerURLEncodedFormRequest.m in Sources */,
+				CEE28D101AE006DF00F4023C /* MyGCDWebServerConnection.m in Sources */,
+				CEE28D241AE0071B00F4023C /* MyGCDWebServerDataRequest.m in Sources */,
+				CEE28D2C1AE0073000F4023C /* MyGCDWebServerMultiPartFormRequest.m in Sources */,
+				CEE28D281AE0072400F4023C /* MyGCDWebServerFileRequest.m in Sources */,
+				CEE28D201AE0070E00F4023C /* MyGCDWebServerResponse.m in Sources */,
+				CEE28D3C1AE0076400F4023C /* MyGCDWebServerFileResponse.m in Sources */,
+				CEE28D401AE0076F00F4023C /* MyGCDWebServerStreamedResponse.m in Sources */,
+				CEE28D341AE0074A00F4023C /* MyGCDWebServerDataResponse.m in Sources */,
 				CEE28D441AE0078000F4023C /* GCDWebDAVServer.m in Sources */,
 				CEE28D0C1AE006CD00F4023C /* MyGCDWebServer.m in Sources */,
-				CEE28D141AE006EA00F4023C /* GCDWebServerFunctions.m in Sources */,
-				CEE28D381AE0075900F4023C /* GCDWebServerErrorResponse.m in Sources */,
+				CEE28D141AE006EA00F4023C /* MyGCDWebServerFunctions.m in Sources */,
+				CEE28D381AE0075900F4023C /* MyGCDWebServerErrorResponse.m in Sources */,
 				CEE28D4A1AE0079200F4023C /* GCDWebUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1030,18 +1030,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2DDD1961BE6945F002CE867 /* MyGCDWebServer.m in Sources */,
-				E2DDD1971BE6945F002CE867 /* GCDWebServerConnection.m in Sources */,
-				E2DDD1981BE6945F002CE867 /* GCDWebServerFunctions.m in Sources */,
-				E2DDD1991BE6945F002CE867 /* GCDWebServerRequest.m in Sources */,
-				E2DDD19A1BE6945F002CE867 /* GCDWebServerResponse.m in Sources */,
-				E2DDD19B1BE6945F002CE867 /* GCDWebServerDataRequest.m in Sources */,
-				E2DDD19C1BE6945F002CE867 /* GCDWebServerFileRequest.m in Sources */,
-				E2DDD19D1BE6945F002CE867 /* GCDWebServerMultiPartFormRequest.m in Sources */,
-				E2DDD19E1BE6945F002CE867 /* GCDWebServerURLEncodedFormRequest.m in Sources */,
-				E2DDD19F1BE6945F002CE867 /* GCDWebServerDataResponse.m in Sources */,
-				E2DDD1A01BE6945F002CE867 /* GCDWebServerErrorResponse.m in Sources */,
-				E2DDD1A11BE6945F002CE867 /* GCDWebServerFileResponse.m in Sources */,
-				E2DDD1A21BE6945F002CE867 /* GCDWebServerStreamedResponse.m in Sources */,
+				E2DDD1971BE6945F002CE867 /* MyGCDWebServerConnection.m in Sources */,
+				E2DDD1981BE6945F002CE867 /* MyGCDWebServerFunctions.m in Sources */,
+				E2DDD1991BE6945F002CE867 /* MyGCDWebServerRequest.m in Sources */,
+				E2DDD19A1BE6945F002CE867 /* MyGCDWebServerResponse.m in Sources */,
+				E2DDD19B1BE6945F002CE867 /* MyGCDWebServerDataRequest.m in Sources */,
+				E2DDD19C1BE6945F002CE867 /* MyGCDWebServerFileRequest.m in Sources */,
+				E2DDD19D1BE6945F002CE867 /* MyGCDWebServerMultiPartFormRequest.m in Sources */,
+				E2DDD19E1BE6945F002CE867 /* MyGCDWebServerURLEncodedFormRequest.m in Sources */,
+				E2DDD19F1BE6945F002CE867 /* MyGCDWebServerDataResponse.m in Sources */,
+				E2DDD1A01BE6945F002CE867 /* MyGCDWebServerErrorResponse.m in Sources */,
+				E2DDD1A11BE6945F002CE867 /* MyGCDWebServerFileResponse.m in Sources */,
+				E2DDD1A21BE6945F002CE867 /* MyGCDWebServerStreamedResponse.m in Sources */,
 				E2DDD1A31BE6945F002CE867 /* GCDWebDAVServer.m in Sources */,
 				E2DDD1A41BE6945F002CE867 /* GCDWebUploader.m in Sources */,
 			);

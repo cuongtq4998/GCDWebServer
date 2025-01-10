@@ -25,15 +25,15 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServerRequest.h"
+#import "MyGCDWebServerRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The GCDWebServerDataRequest subclass of GCDWebServerRequest stores the body
+ *  The MyGCDWebServerDataRequest subclass of MyGCDWebServerRequest stores the body
  *  of the HTTP request in memory.
  */
-@interface GCDWebServerDataRequest : GCDWebServerRequest
+@interface MyGCDWebServerDataRequest : MyGCDWebServerRequest
 
 /**
  *  Returns the data for the request body.
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GCDWebServerDataRequest (Extensions)
+@interface MyGCDWebServerDataRequest (Extensions)
 
 /**
  *  Returns the data for the request body interpreted as text. If the content

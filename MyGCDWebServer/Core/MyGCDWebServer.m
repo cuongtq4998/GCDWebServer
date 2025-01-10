@@ -40,7 +40,7 @@
 #import <netinet/in.h>
 #import <dns_sd.h>
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
 #if TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
 #define kDefaultPort 80
@@ -133,7 +133,7 @@ static void _ExecuteMainThreadRunLoopSources() {
 
 #endif
 
-@implementation GCDWebServerHandler
+@implementation MyGCDWebServerHandler
 
 - (instancetype)initWithMatchBlock:(GCDWebServerMatchBlock _Nonnull)matchBlock asyncProcessBlock:(GCDWebServerAsyncProcessBlock _Nonnull)processBlock {
   if ((self = [super init])) {
@@ -148,7 +148,7 @@ static void _ExecuteMainThreadRunLoopSources() {
 @implementation MyGCDWebServer {
   dispatch_queue_t _syncQueue;
   dispatch_group_t _sourceGroup;
-  NSMutableArray<GCDWebServerHandler*>* _handlers;
+  NSMutableArray<MyGCDWebServerHandler*>* _handlers;
   NSInteger _activeConnections;  // Accessed through _syncQueue only
   BOOL _connected;  // Accessed on main thread only
   CFRunLoopTimerRef _disconnectTimer;  // Accessed on main thread only
@@ -241,7 +241,7 @@ static void _ExecuteMainThreadRunLoopSources() {
   }
 }
 
-- (void)willStartConnection:(GCDWebServerConnection*)connection {
+- (void)willStartConnection:(MyGCDWebServerConnection*)connection {
   dispatch_sync(_syncQueue, ^{
     GWS_DCHECK(self->_activeConnections >= 0);
     if (self->_activeConnections == 0) {
@@ -293,7 +293,7 @@ static void _ExecuteMainThreadRunLoopSources() {
   }
 }
 
-- (void)didEndConnection:(GCDWebServerConnection*)connection {
+- (void)didEndConnection:(MyGCDWebServerConnection*)connection {
   dispatch_sync(_syncQueue, ^{
     GWS_DCHECK(self->_activeConnections > 0);
     self->_activeConnections -= 1;
@@ -331,14 +331,14 @@ static void _ExecuteMainThreadRunLoopSources() {
 
 - (void)addHandlerWithMatchBlock:(GCDWebServerMatchBlock)matchBlock processBlock:(GCDWebServerProcessBlock)processBlock {
   [self addHandlerWithMatchBlock:matchBlock
-               asyncProcessBlock:^(GCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock) {
+               asyncProcessBlock:^(MyGCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock) {
                  completionBlock(processBlock(request));
                }];
 }
 
 - (void)addHandlerWithMatchBlock:(GCDWebServerMatchBlock)matchBlock asyncProcessBlock:(GCDWebServerAsyncProcessBlock)processBlock {
   GWS_DCHECK(_options == nil);
-  GCDWebServerHandler* handler = [[GCDWebServerHandler alloc] initWithMatchBlock:matchBlock asyncProcessBlock:processBlock];
+  MyGCDWebServerHandler* handler = [[MyGCDWebServerHandler alloc] initWithMatchBlock:matchBlock asyncProcessBlock:processBlock];
   [_handlers insertObject:handler atIndex:0];
 }
 
@@ -505,7 +505,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
         int noSigPipe = 1;
         setsockopt(socket, SOL_SOCKET, SO_NOSIGPIPE, &noSigPipe, sizeof(noSigPipe));  // Make sure this socket cannot generate SIG_PIPE
 
-        GCDWebServerConnection* connection = [(GCDWebServerConnection*)[self->_connectionClass alloc] initWithServer:self localAddress:localAddress remoteAddress:remoteAddress socket:socket];  // Connection will automatically retain itself while opened
+        MyGCDWebServerConnection* connection = [(MyGCDWebServerConnection*)[self->_connectionClass alloc] initWithServer:self localAddress:localAddress remoteAddress:remoteAddress socket:socket];  // Connection will automatically retain itself while opened
         [connection self];  // Prevent compiler from complaining about unused variable / useless statement
       } else {
         GWS_LOG_ERROR(@"Failed accepting %s socket: %s (%i)", isIPv6 ? "IPv6" : "IPv4", strerror(errno), errno);
@@ -571,7 +571,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
       [self->_authenticationDigestAccounts setObject:GCDWebServerComputeMD5Digest(@"%@:%@:%@", username, self->_authenticationRealm, password) forKey:username];
     }];
   }
-  _connectionClass = _GetOption(_options, GCDWebServerOption_ConnectionClass, [GCDWebServerConnection class]);
+  _connectionClass = _GetOption(_options, GCDWebServerOption_ConnectionClass, [MyGCDWebServerConnection class]);
   _shouldAutomaticallyMapHEADToGET = [(NSNumber*)_GetOption(_options, GCDWebServerOption_AutomaticallyMapHEADToGET, @YES) boolValue];
   _disconnectDelay = [(NSNumber*)_GetOption(_options, GCDWebServerOption_ConnectedStateCoalescingInterval, @1.0) doubleValue];
   _dispatchQueuePriority = [(NSNumber*)_GetOption(_options, GCDWebServerOption_DispatchQueuePriority, @(DISPATCH_QUEUE_PRIORITY_DEFAULT)) longValue];
@@ -894,18 +894,18 @@ static inline NSString* _EncodeBase64(NSString* string) {
 - (void)addDefaultHandlerForMethod:(NSString*)method requestClass:(Class)aClass processBlock:(GCDWebServerProcessBlock)block {
   [self addDefaultHandlerForMethod:method
                       requestClass:aClass
-                 asyncProcessBlock:^(GCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock) {
+                 asyncProcessBlock:^(MyGCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock) {
                    completionBlock(block(request));
                  }];
 }
 
 - (void)addDefaultHandlerForMethod:(NSString*)method requestClass:(Class)aClass asyncProcessBlock:(GCDWebServerAsyncProcessBlock)block {
   [self
-      addHandlerWithMatchBlock:^GCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
+      addHandlerWithMatchBlock:^MyGCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
         if (![requestMethod isEqualToString:method]) {
           return nil;
         }
-        return [(GCDWebServerRequest*)[aClass alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
+        return [(MyGCDWebServerRequest*)[aClass alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
       }
              asyncProcessBlock:block];
 }
@@ -914,22 +914,22 @@ static inline NSString* _EncodeBase64(NSString* string) {
   [self addHandlerForMethod:method
                        path:path
                requestClass:aClass
-          asyncProcessBlock:^(GCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock) {
+          asyncProcessBlock:^(MyGCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock) {
             completionBlock(block(request));
           }];
 }
 
 - (void)addHandlerForMethod:(NSString*)method path:(NSString*)path requestClass:(Class)aClass asyncProcessBlock:(GCDWebServerAsyncProcessBlock)block {
-  if ([path hasPrefix:@"/"] && [aClass isSubclassOfClass:[GCDWebServerRequest class]]) {
+  if ([path hasPrefix:@"/"] && [aClass isSubclassOfClass:[MyGCDWebServerRequest class]]) {
     [self
-        addHandlerWithMatchBlock:^GCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
+        addHandlerWithMatchBlock:^MyGCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
           if (![requestMethod isEqualToString:method]) {
             return nil;
           }
           if ([urlPath caseInsensitiveCompare:path] != NSOrderedSame) {
             return nil;
           }
-          return [(GCDWebServerRequest*)[aClass alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
+          return [(MyGCDWebServerRequest*)[aClass alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
         }
                asyncProcessBlock:block];
   } else {
@@ -941,16 +941,16 @@ static inline NSString* _EncodeBase64(NSString* string) {
   [self addHandlerForMethod:method
                   pathRegex:regex
                requestClass:aClass
-          asyncProcessBlock:^(GCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock) {
+          asyncProcessBlock:^(MyGCDWebServerRequest* request, GCDWebServerCompletionBlock completionBlock) {
             completionBlock(block(request));
           }];
 }
 
 - (void)addHandlerForMethod:(NSString*)method pathRegex:(NSString*)regex requestClass:(Class)aClass asyncProcessBlock:(GCDWebServerAsyncProcessBlock)block {
   NSRegularExpression* expression = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionCaseInsensitive error:NULL];
-  if (expression && [aClass isSubclassOfClass:[GCDWebServerRequest class]]) {
+  if (expression && [aClass isSubclassOfClass:[MyGCDWebServerRequest class]]) {
     [self
-        addHandlerWithMatchBlock:^GCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
+        addHandlerWithMatchBlock:^MyGCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
           if (![requestMethod isEqualToString:method]) {
             return nil;
           }
@@ -973,7 +973,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
             }
           }
 
-          GCDWebServerRequest* request = [(GCDWebServerRequest*)[aClass alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
+          MyGCDWebServerRequest* request = [(MyGCDWebServerRequest*)[aClass alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
           [request setAttribute:captures forKey:GCDWebServerRequestAttribute_RegexCaptures];
           return request;
         }
@@ -990,9 +990,9 @@ static inline NSString* _EncodeBase64(NSString* string) {
 - (void)addGETHandlerForPath:(NSString*)path staticData:(NSData*)staticData contentType:(NSString*)contentType cacheAge:(NSUInteger)cacheAge {
   [self addHandlerForMethod:@"GET"
                        path:path
-               requestClass:[GCDWebServerRequest class]
-               processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
-                 GCDWebServerResponse* response = [GCDWebServerDataResponse responseWithData:staticData contentType:contentType];
+               requestClass:[MyGCDWebServerRequest class]
+               processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
+                 MyGCDWebServerResponse* response = [MyGCDWebServerDataResponse responseWithData:staticData contentType:contentType];
                  response.cacheControlMaxAge = cacheAge;
                  return response;
                }];
@@ -1001,21 +1001,21 @@ static inline NSString* _EncodeBase64(NSString* string) {
 - (void)addGETHandlerForPath:(NSString*)path filePath:(NSString*)filePath isAttachment:(BOOL)isAttachment cacheAge:(NSUInteger)cacheAge allowRangeRequests:(BOOL)allowRangeRequests {
   [self addHandlerForMethod:@"GET"
                        path:path
-               requestClass:[GCDWebServerRequest class]
-               processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
-                 GCDWebServerResponse* response = nil;
+               requestClass:[MyGCDWebServerRequest class]
+               processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
+                 MyGCDWebServerResponse* response = nil;
                  if (allowRangeRequests) {
-                   response = [GCDWebServerFileResponse responseWithFile:filePath byteRange:request.byteRange isAttachment:isAttachment];
+                   response = [MyGCDWebServerFileResponse responseWithFile:filePath byteRange:request.byteRange isAttachment:isAttachment];
                    [response setValue:@"bytes" forAdditionalHeader:@"Accept-Ranges"];
                  } else {
-                   response = [GCDWebServerFileResponse responseWithFile:filePath isAttachment:isAttachment];
+                   response = [MyGCDWebServerFileResponse responseWithFile:filePath isAttachment:isAttachment];
                  }
                  response.cacheControlMaxAge = cacheAge;
                  return response;
                }];
 }
 
-- (GCDWebServerResponse*)_responseWithContentsOfDirectory:(NSString*)path {
+- (MyGCDWebServerResponse*)_responseWithContentsOfDirectory:(NSString*)path {
   NSArray* contents = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL] sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
   if (contents == nil) {
     return nil;
@@ -1042,24 +1042,24 @@ static inline NSString* _EncodeBase64(NSString* string) {
   }
   [html appendString:@"</ul>\n"];
   [html appendString:@"</body></html>\n"];
-  return [GCDWebServerDataResponse responseWithHTML:html];
+  return [MyGCDWebServerDataResponse responseWithHTML:html];
 }
 
 - (void)addGETHandlerForBasePath:(NSString*)basePath directoryPath:(NSString*)directoryPath indexFilename:(NSString*)indexFilename cacheAge:(NSUInteger)cacheAge allowRangeRequests:(BOOL)allowRangeRequests {
   if ([basePath hasPrefix:@"/"] && [basePath hasSuffix:@"/"]) {
     MyGCDWebServer* __unsafe_unretained server = self;
     [self
-        addHandlerWithMatchBlock:^GCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
+        addHandlerWithMatchBlock:^MyGCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
           if (![requestMethod isEqualToString:@"GET"]) {
             return nil;
           }
           if (![urlPath hasPrefix:basePath]) {
             return nil;
           }
-          return [[GCDWebServerRequest alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
+          return [[MyGCDWebServerRequest alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
         }
-        processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
-          GCDWebServerResponse* response = nil;
+        processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
+          MyGCDWebServerResponse* response = nil;
           NSString* filePath = [directoryPath stringByAppendingPathComponent:GCDWebServerNormalizePath([request.path substringFromIndex:basePath.length])];
           NSString* fileType = [[[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:NULL] fileType];
           if (fileType) {
@@ -1068,23 +1068,23 @@ static inline NSString* _EncodeBase64(NSString* string) {
                 NSString* indexPath = [filePath stringByAppendingPathComponent:indexFilename];
                 NSString* indexType = [[[NSFileManager defaultManager] attributesOfItemAtPath:indexPath error:NULL] fileType];
                 if ([indexType isEqualToString:NSFileTypeRegular]) {
-                  return [GCDWebServerFileResponse responseWithFile:indexPath];
+                  return [MyGCDWebServerFileResponse responseWithFile:indexPath];
                 }
               }
               response = [server _responseWithContentsOfDirectory:filePath];
             } else if ([fileType isEqualToString:NSFileTypeRegular]) {
               if (allowRangeRequests) {
-                response = [GCDWebServerFileResponse responseWithFile:filePath byteRange:request.byteRange];
+                response = [MyGCDWebServerFileResponse responseWithFile:filePath byteRange:request.byteRange];
                 [response setValue:@"bytes" forAdditionalHeader:@"Accept-Ranges"];
               } else {
-                response = [GCDWebServerFileResponse responseWithFile:filePath];
+                response = [MyGCDWebServerFileResponse responseWithFile:filePath];
               }
             }
           }
           if (response) {
             response.cacheControlMaxAge = cacheAge;
           } else {
-            response = [GCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_NotFound];
+            response = [MyGCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_NotFound];
           }
           return response;
         }];

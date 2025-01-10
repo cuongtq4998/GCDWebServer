@@ -31,25 +31,25 @@
 
 #import <zlib.h>
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
 NSString* const GCDWebServerRequestAttribute_RegexCaptures = @"GCDWebServerRequestAttribute_RegexCaptures";
 
 #define kZlibErrorDomain @"ZlibErrorDomain"
 #define kGZipInitialBufferSize (256 * 1024)
 
-@interface GCDWebServerBodyDecoder : NSObject <GCDWebServerBodyWriter>
+@interface GCDWebServerBodyDecoder : NSObject <MyGCDWebServerBodyWriter>
 @end
 
 @interface GCDWebServerGZipDecoder : GCDWebServerBodyDecoder
 @end
 
 @implementation GCDWebServerBodyDecoder {
-  GCDWebServerRequest* __unsafe_unretained _request;
-  id<GCDWebServerBodyWriter> __unsafe_unretained _writer;
+  MyGCDWebServerRequest* __unsafe_unretained _request;
+  id<MyGCDWebServerBodyWriter> __unsafe_unretained _writer;
 }
 
-- (instancetype)initWithRequest:(GCDWebServerRequest* _Nonnull)request writer:(id<GCDWebServerBodyWriter> _Nonnull)writer {
+- (instancetype)initWithRequest:(MyGCDWebServerRequest* _Nonnull)request writer:(id<MyGCDWebServerBodyWriter> _Nonnull)writer {
   if ((self = [super init])) {
     _request = request;
     _writer = writer;
@@ -134,10 +134,10 @@ NSString* const GCDWebServerRequestAttribute_RegexCaptures = @"GCDWebServerReque
 
 @end
 
-@implementation GCDWebServerRequest {
+@implementation MyGCDWebServerRequest {
   BOOL _opened;
   NSMutableArray<GCDWebServerBodyDecoder*>* _decoders;
-  id<GCDWebServerBodyWriter> __unsafe_unretained _writer;
+  id<MyGCDWebServerBodyWriter> __unsafe_unretained _writer;
   NSMutableDictionary<NSString*, id>* _attributes;
 }
 

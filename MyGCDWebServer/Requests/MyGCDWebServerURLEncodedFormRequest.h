@@ -25,36 +25,31 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#if !__has_feature(objc_arc)
-#error MyGCDWebServer requires ARC
-#endif
+#import "MyGCDWebServerDataRequest.h"
 
-#import "GCDWebServerPrivate.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@implementation GCDWebServerURLEncodedFormRequest
+/**
+ *  The MyGCDWebServerURLEncodedFormRequest subclass of MyGCDWebServerRequest
+ *  parses the body of the HTTP request as a URL encoded form using
+ *  GCDWebServerParseURLEncodedForm().
+ */
+@interface MyGCDWebServerURLEncodedFormRequest : MyGCDWebServerDataRequest
 
-+ (NSString*)mimeType {
-  return @"application/x-www-form-urlencoded";
-}
+/**
+ *  Returns the unescaped control names and values for the URL encoded form.
+ *
+ *  The text encoding used to interpret the data is extracted from the
+ *  "Content-Type" header or defaults to UTF-8.
+ */
+@property(nonatomic, readonly) NSDictionary<NSString*, NSString*>* arguments;
 
-- (BOOL)close:(NSError**)error {
-  if (![super close:error]) {
-    return NO;
-  }
-
-  NSString* charset = GCDWebServerExtractHeaderValueParameter(self.contentType, @"charset");
-  NSString* string = [[NSString alloc] initWithData:self.data encoding:GCDWebServerStringEncodingFromCharset(charset)];
-  _arguments = GCDWebServerParseURLEncodedForm(string);
-  return YES;
-}
-
-- (NSString*)description {
-  NSMutableString* description = [NSMutableString stringWithString:[super description]];
-  [description appendString:@"\n"];
-  for (NSString* argument in [[_arguments allKeys] sortedArrayUsingSelector:@selector(compare:)]) {
-    [description appendFormat:@"\n%@ = %@", argument, [_arguments objectForKey:argument]];
-  }
-  return description;
-}
+/**
+ *  Returns the MIME type for URL encoded forms
+ *  i.e. "application/x-www-form-urlencoded".
+ */
++ (NSString*)mimeType;
 
 @end
+
+NS_ASSUME_NONNULL_END

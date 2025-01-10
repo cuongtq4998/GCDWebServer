@@ -35,7 +35,7 @@
 #import <libkern/OSAtomic.h>
 #endif
 
-#import "GCDWebServerPrivate.h"
+#import "MyGCDWebServerPrivate.h"
 
 #define kHeadersReadCapacity (1 * 1024)
 #define kBodyReadCapacity (256 * 1024)
@@ -59,14 +59,14 @@ static int32_t _connectionCounter = 0;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GCDWebServerConnection (Read)
+@interface MyGCDWebServerConnection (Read)
 - (void)readData:(NSMutableData*)data withLength:(NSUInteger)length completionBlock:(ReadDataCompletionBlock)block;
 - (void)readHeaders:(NSMutableData*)headersData withCompletionBlock:(ReadHeadersCompletionBlock)block;
 - (void)readBodyWithRemainingLength:(NSUInteger)length completionBlock:(ReadBodyCompletionBlock)block;
 - (void)readNextBodyChunk:(NSMutableData*)chunkData completionBlock:(ReadBodyCompletionBlock)block;
 @end
 
-@interface GCDWebServerConnection (Write)
+@interface MyGCDWebServerConnection (Write)
 - (void)writeData:(NSData*)data withCompletionBlock:(WriteDataCompletionBlock)block;
 - (void)writeHeadersWithCompletionBlock:(WriteHeadersCompletionBlock)block;
 - (void)writeBodyWithCompletionBlock:(WriteBodyCompletionBlock)block;
@@ -74,15 +74,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-@implementation GCDWebServerConnection {
+@implementation MyGCDWebServerConnection {
   CFSocketNativeHandle _socket;
   BOOL _virtualHEAD;
 
   CFHTTPMessageRef _requestMessage;
-  GCDWebServerRequest* _request;
-  GCDWebServerHandler* _handler;
+  MyGCDWebServerRequest* _request;
+  MyGCDWebServerHandler* _handler;
   CFHTTPMessageRef _responseMessage;
-  GCDWebServerResponse* _response;
+  MyGCDWebServerResponse* _response;
   NSInteger _statusCode;
 
   BOOL _opened;
@@ -136,19 +136,19 @@ NS_ASSUME_NONNULL_END
 - (void)_startProcessingRequest {
   GWS_DCHECK(_responseMessage == NULL);
 
-  GCDWebServerResponse* preflightResponse = [self preflightRequest:_request];
+  MyGCDWebServerResponse* preflightResponse = [self preflightRequest:_request];
   if (preflightResponse) {
     [self _finishProcessingRequest:preflightResponse];
   } else {
     [self processRequest:_request
-              completion:^(GCDWebServerResponse* processResponse) {
+              completion:^(MyGCDWebServerResponse* processResponse) {
                 [self _finishProcessingRequest:processResponse];
               }];
   }
 }
 
 // http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
-- (void)_finishProcessingRequest:(GCDWebServerResponse*)response {
+- (void)_finishProcessingRequest:(MyGCDWebServerResponse*)response {
   GWS_DCHECK(_responseMessage == NULL);
   BOOL hasBody = NO;
 
@@ -342,7 +342,7 @@ NS_ASSUME_NONNULL_END
                 [self _startProcessingRequest];
               }
             } else {
-              self->_request = [[GCDWebServerRequest alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:requestPath query:requestQuery];
+              self->_request = [[MyGCDWebServerRequest alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:requestPath query:requestQuery];
               GWS_DCHECK(self->_request);
               [self abortRequest:self->_request withStatusCode:kGCDWebServerHTTPStatusCode_NotImplemented];
             }
@@ -410,7 +410,7 @@ NS_ASSUME_NONNULL_END
 
 @end
 
-@implementation GCDWebServerConnection (Read)
+@implementation MyGCDWebServerConnection (Read)
 
 - (void)readData:(NSMutableData*)data withLength:(NSUInteger)length completionBlock:(ReadDataCompletionBlock)block {
   dispatch_read(_socket, length, dispatch_get_global_queue(_server.dispatchQueuePriority, 0), ^(dispatch_data_t buffer, int error) {
@@ -567,7 +567,7 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
 
 @end
 
-@implementation GCDWebServerConnection (Write)
+@implementation MyGCDWebServerConnection (Write)
 
 - (void)writeData:(NSData*)data withCompletionBlock:(WriteDataCompletionBlock)block {
   dispatch_data_t buffer = dispatch_data_create(data.bytes, data.length, dispatch_get_global_queue(_server.dispatchQueuePriority, 0), ^{
@@ -649,7 +649,7 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
 
 @end
 
-@implementation GCDWebServerConnection (Subclassing)
+@implementation MyGCDWebServerConnection (Subclassing)
 
 - (BOOL)open {
 #ifdef __GCDWEBSERVER_ENABLE_TESTING__
@@ -703,9 +703,9 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
 }
 
 // https://tools.ietf.org/html/rfc2617
-- (GCDWebServerResponse*)preflightRequest:(GCDWebServerRequest*)request {
+- (MyGCDWebServerResponse*)preflightRequest:(MyGCDWebServerRequest*)request {
   GWS_LOG_DEBUG(@"Connection on socket %i preflighting request \"%@ %@\" with %lu bytes body", _socket, _virtualHEAD ? @"HEAD" : _request.method, _request.path, (unsigned long)_totalBytesRead);
-  GCDWebServerResponse* response = nil;
+  MyGCDWebServerResponse* response = nil;
   if (_server.authenticationBasicAccounts) {
     __block BOOL authenticated = NO;
     NSString* authorizationHeader = [request.headers objectForKey:@"Authorization"];
@@ -719,7 +719,7 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
       }];
     }
     if (!authenticated) {
-      response = [GCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_Unauthorized];
+      response = [MyGCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_Unauthorized];
       [response setValue:[NSString stringWithFormat:@"Basic realm=\"%@\"", _server.authenticationRealm] forAdditionalHeader:@"WWW-Authenticate"];
     }
   } else if (_server.authenticationDigestAccounts) {
@@ -746,14 +746,14 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
       }
     }
     if (!authenticated) {
-      response = [GCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_Unauthorized];
+      response = [MyGCDWebServerResponse responseWithStatusCode:kGCDWebServerHTTPStatusCode_Unauthorized];
       [response setValue:[NSString stringWithFormat:@"Digest realm=\"%@\", nonce=\"%@\"%@", _server.authenticationRealm, _digestAuthenticationNonce, isStaled ? @", stale=TRUE" : @""] forAdditionalHeader:@"WWW-Authenticate"];  // TODO: Support Quality of Protection ("qop")
     }
   }
   return response;
 }
 
-- (void)processRequest:(GCDWebServerRequest*)request completion:(GCDWebServerCompletionBlock)completion {
+- (void)processRequest:(MyGCDWebServerRequest*)request completion:(GCDWebServerCompletionBlock)completion {
   GWS_LOG_DEBUG(@"Connection on socket %i processing request \"%@ %@\" with %lu bytes body", _socket, _virtualHEAD ? @"HEAD" : _request.method, _request.path, (unsigned long)_totalBytesRead);
   _handler.asyncProcessBlock(request, [completion copy]);
 }
@@ -777,10 +777,10 @@ static inline BOOL _CompareResources(NSString* responseETag, NSString* requestET
   return NO;
 }
 
-- (GCDWebServerResponse*)overrideResponse:(GCDWebServerResponse*)response forRequest:(GCDWebServerRequest*)request {
+- (MyGCDWebServerResponse*)overrideResponse:(MyGCDWebServerResponse*)response forRequest:(MyGCDWebServerRequest*)request {
   if ((response.statusCode >= 200) && (response.statusCode < 300) && _CompareResources(response.eTag, request.ifNoneMatch, response.lastModifiedDate, request.ifModifiedSince)) {
     NSInteger code = [request.method isEqualToString:@"HEAD"] || [request.method isEqualToString:@"GET"] ? kGCDWebServerHTTPStatusCode_NotModified : kGCDWebServerHTTPStatusCode_PreconditionFailed;
-    GCDWebServerResponse* newResponse = [GCDWebServerResponse responseWithStatusCode:code];
+    MyGCDWebServerResponse* newResponse = [MyGCDWebServerResponse responseWithStatusCode:code];
     newResponse.cacheControlMaxAge = response.cacheControlMaxAge;
     newResponse.lastModifiedDate = response.lastModifiedDate;
     newResponse.eTag = response.eTag;
@@ -790,7 +790,7 @@ static inline BOOL _CompareResources(NSString* responseETag, NSString* requestET
   return response;
 }
 
-- (void)abortRequest:(GCDWebServerRequest*)request withStatusCode:(NSInteger)statusCode {
+- (void)abortRequest:(MyGCDWebServerRequest*)request withStatusCode:(NSInteger)statusCode {
   GWS_DCHECK(_responseMessage == NULL);
   GWS_DCHECK((statusCode >= 400) && (statusCode < 600));
   [self _initializeResponseHeadersWithStatusCode:statusCode];

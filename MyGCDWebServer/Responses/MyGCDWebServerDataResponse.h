@@ -25,15 +25,15 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServerResponse.h"
+#import "MyGCDWebServerResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The GCDWebServerDataResponse subclass of GCDWebServerResponse reads the body
+ *  The MyGCDWebServerDataResponse subclass of MyGCDWebServerResponse reads the body
  *  of the HTTP response from memory.
  */
-@interface GCDWebServerDataResponse : GCDWebServerResponse
+@interface MyGCDWebServerDataResponse : MyGCDWebServerResponse
 @property(nonatomic, copy) NSString* contentType;  // Redeclare as non-null
 
 /**
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GCDWebServerDataResponse (Extensions)
+@interface MyGCDWebServerDataResponse (Extensions)
 
 /**
  *  Creates a data response from text encoded using UTF-8.
