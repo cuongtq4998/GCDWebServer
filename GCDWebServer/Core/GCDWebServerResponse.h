@@ -30,7 +30,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The GCDWebServerBodyReaderCompletionBlock is passed by GCDWebServer to the
+ *  The GCDWebServerBodyReaderCompletionBlock is passed by MyGCDWebServer to the
  *  GCDWebServerBodyReader object when reading data from it asynchronously.
  */
 typedef void (^GCDWebServerBodyReaderCompletionBlock)(NSData* _Nullable data, NSError* _Nullable error);
@@ -86,7 +86,7 @@ typedef void (^GCDWebServerBodyReaderCompletionBlock)(NSData* _Nullable data, NS
 
 /**
  *  The GCDWebServerResponse class is used to wrap a single HTTP response.
- *  It is instantiated by the handler of the GCDWebServer that handled the request.
+ *  It is instantiated by the handler of the MyGCDWebServer that handled the request.
  *  If a body is present, the methods from the GCDWebServerBodyReader protocol
  *  will be called by the GCDWebServerConnection to send it.
  *

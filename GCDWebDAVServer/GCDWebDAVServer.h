@@ -25,7 +25,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServer.h"
+#import "MyGCDWebServer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -72,13 +72,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The GCDWebDAVServer subclass of GCDWebServer implements a class 1 compliant
+ *  The GCDWebDAVServer subclass of MyGCDWebServer implements a class 1 compliant
  *  WebDAV server. It is also partially class 2 compliant but only when the
  *  client is the OS X WebDAV implementation (so it can work with the OS X Finder).
  *
  *  See the README.md file for more information about the features of GCDWebDAVServer.
  */
-@interface GCDWebDAVServer : GCDWebServer
+@interface GCDWebDAVServer : MyGCDWebServer
 
 /**
  *  Returns the upload directory as specified when the server was initialized.

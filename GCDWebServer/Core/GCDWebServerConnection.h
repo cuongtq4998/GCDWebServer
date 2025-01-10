@@ -25,30 +25,30 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServer.h"
+#import "MyGCDWebServer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class GCDWebServerHandler;
 
 /**
- *  The GCDWebServerConnection class is instantiated by GCDWebServer to handle
+ *  The GCDWebServerConnection class is instantiated by MyGCDWebServer to handle
  *  each new HTTP connection. Each instance stays alive until the connection is
  *  closed.
  *
  *  You cannot use this class directly, but it is made public so you can
  *  subclass it to override some hooks. Use the GCDWebServerOption_ConnectionClass
- *  option for GCDWebServer to install your custom subclass.
+ *  option for MyGCDWebServer to install your custom subclass.
  *
- *  @warning The GCDWebServerConnection retains the GCDWebServer until the
+ *  @warning The GCDWebServerConnection retains the MyGCDWebServer until the
  *  connection is closed.
  */
 @interface GCDWebServerConnection : NSObject
 
 /**
- *  Returns the GCDWebServer that owns the connection.
+ *  Returns the MyGCDWebServer that owns the connection.
  */
-@property(nonatomic, readonly) GCDWebServer* server;
+@property(nonatomic, readonly) MyGCDWebServer* server;
 
 /**
  *  Returns YES if the connection is using IPv6.
@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Hooks to customize the behavior of GCDWebServer HTTP connections.
+ *  Hooks to customize the behavior of MyGCDWebServer HTTP connections.
  *
  *  @warning These methods can be called on any GCD thread.
  *  Be sure to also call "super" when overriding them.

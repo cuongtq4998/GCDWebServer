@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The GCDWebServerMatchBlock is called for every handler added to the
- *  GCDWebServer whenever a new HTTP request has started (i.e. HTTP headers have
+ *  MyGCDWebServer whenever a new HTTP request has started (i.e. HTTP headers have
  *  been received). The block is passed the basic info for the request (HTTP method,
  *  URL, headers...) and must decide if it wants to handle it or not.
  *
@@ -77,14 +77,14 @@ typedef void (^GCDWebServerAsyncProcessBlock)(__kindof GCDWebServerRequest* requ
 typedef void (^GCDWebServerBuiltInLoggerBlock)(int level, NSString* _Nonnull message);
 
 /**
- *  The port used by the GCDWebServer (NSNumber / NSUInteger).
+ *  The port used by the MyGCDWebServer (NSNumber / NSUInteger).
  *
  *  The default value is 0 i.e. let the OS pick a random port.
  */
 extern NSString* const GCDWebServerOption_Port;
 
 /**
- *  The Bonjour name used by the GCDWebServer (NSString). If set to an empty string,
+ *  The Bonjour name used by the MyGCDWebServer (NSString). If set to an empty string,
  *  the name will automatically take the value of the GCDWebServerOption_ServerName
  *  option. If this option is set to nil, Bonjour will be disabled.
  *
@@ -93,14 +93,14 @@ extern NSString* const GCDWebServerOption_Port;
 extern NSString* const GCDWebServerOption_BonjourName;
 
 /**
-*  The Bonjour TXT Data used by the GCDWebServer (NSDictionary<NSString, NSString>).
+*  The Bonjour TXT Data used by the MyGCDWebServer (NSDictionary<NSString, NSString>).
 *
 *  The default value is nil.
 */
 extern NSString* const GCDWebServerOption_BonjourTXTData;
 
 /**
- *  The Bonjour service type used by the GCDWebServer (NSString).
+ *  The Bonjour service type used by the MyGCDWebServer (NSString).
  *
  *  The default value is "_http._tcp", the service type for HTTP web servers.
  */
@@ -114,7 +114,7 @@ extern NSString* const GCDWebServerOption_BonjourType;
  *  The default value is NO.
  *
  *  @warning The external port set up by the NAT gateway may be different than
- *  the one used by the GCDWebServer.
+ *  the one used by the MyGCDWebServer.
  */
 extern NSString* const GCDWebServerOption_RequestNATPortMapping;
 
@@ -138,14 +138,14 @@ extern NSString* const GCDWebServerOption_BindToLocalhost;
 extern NSString* const GCDWebServerOption_MaxPendingConnections;
 
 /**
- *  The value for "Server" HTTP header used by the GCDWebServer (NSString).
+ *  The value for "Server" HTTP header used by the MyGCDWebServer (NSString).
  *
- *  The default value is the GCDWebServer class name.
+ *  The default value is the MyGCDWebServer class name.
  */
 extern NSString* const GCDWebServerOption_ServerName;
 
 /**
- *  The authentication method used by the GCDWebServer
+ *  The authentication method used by the MyGCDWebServer
  *  (one of "GCDWebServerAuthenticationMethod_...").
  *
  *  The default value is nil i.e. authentication is disabled.
@@ -153,14 +153,14 @@ extern NSString* const GCDWebServerOption_ServerName;
 extern NSString* const GCDWebServerOption_AuthenticationMethod;
 
 /**
- *  The authentication realm used by the GCDWebServer (NSString).
+ *  The authentication realm used by the MyGCDWebServer (NSString).
  *
  *  The default value is the same as the GCDWebServerOption_ServerName option.
  */
 extern NSString* const GCDWebServerOption_AuthenticationRealm;
 
 /**
- *  The authentication accounts used by the GCDWebServer
+ *  The authentication accounts used by the MyGCDWebServer
  *  (NSDictionary of username / password pairs).
  *
  *  The default value is nil i.e. no accounts.
@@ -168,7 +168,7 @@ extern NSString* const GCDWebServerOption_AuthenticationRealm;
 extern NSString* const GCDWebServerOption_AuthenticationAccounts;
 
 /**
- *  The class used by the GCDWebServer when instantiating GCDWebServerConnection
+ *  The class used by the MyGCDWebServer when instantiating GCDWebServerConnection
  *  (subclass of GCDWebServerConnection).
  *
  *  The default value is the GCDWebServerConnection class.
@@ -176,7 +176,7 @@ extern NSString* const GCDWebServerOption_AuthenticationAccounts;
 extern NSString* const GCDWebServerOption_ConnectionClass;
 
 /**
- *  Allow the GCDWebServer to pretend "HEAD" requests are actually "GET" ones
+ *  Allow the MyGCDWebServer to pretend "HEAD" requests are actually "GET" ones
  *  and automatically discard the HTTP body of the response (NSNumber / BOOL).
  *
  *  The default value is YES.
@@ -184,7 +184,7 @@ extern NSString* const GCDWebServerOption_ConnectionClass;
 extern NSString* const GCDWebServerOption_AutomaticallyMapHEADToGET;
 
 /**
- *  The interval expressed in seconds used by the GCDWebServer to decide how to
+ *  The interval expressed in seconds used by the MyGCDWebServer to decide how to
  *  coalesce calls to -webServerDidConnect: and -webServerDidDisconnect:
  *  (NSNumber / double). Coalescing will be disabled if the interval is <= 0.0.
  *
@@ -204,7 +204,7 @@ extern NSString* const GCDWebServerOption_DispatchQueuePriority;
 #if TARGET_OS_IPHONE
 
 /**
- *  Enables the GCDWebServer to automatically suspend itself (as if -stop was
+ *  Enables the MyGCDWebServer to automatically suspend itself (as if -stop was
  *  called) when the iOS app goes into the background and the last
  *  GCDWebServerConnection is closed, then resume itself (as if -start was called)
  *  when the iOS app comes back to the foreground (NSNumber / BOOL).
@@ -213,7 +213,7 @@ extern NSString* const GCDWebServerOption_DispatchQueuePriority;
  *
  *  The default value is YES.
  *
- *  @warning The running property will be NO while the GCDWebServer is suspended.
+ *  @warning The running property will be NO while the MyGCDWebServer is suspended.
  */
 extern NSString* const GCDWebServerOption_AutomaticallySuspendInBackground;
 
@@ -232,10 +232,10 @@ extern NSString* const GCDWebServerAuthenticationMethod_Basic;
  */
 extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 
-@class GCDWebServer;
+@class MyGCDWebServer;
 
 /**
- *  Delegate methods for GCDWebServer.
+ *  Delegate methods for MyGCDWebServer.
  *
  *  @warning These methods are always called on the main thread in a serialized way.
  */
@@ -245,7 +245,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 /**
  *  This method is called after the server has successfully started.
  */
-- (void)webServerDidStart:(GCDWebServer*)server;
+- (void)webServerDidStart:(MyGCDWebServer*)server;
 
 /**
  *  This method is called after the Bonjour registration for the server has
@@ -254,7 +254,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
  *  Use the "bonjourServerURL" property to retrieve the Bonjour address of the
  *  server.
  */
-- (void)webServerDidCompleteBonjourRegistration:(GCDWebServer*)server;
+- (void)webServerDidCompleteBonjourRegistration:(MyGCDWebServer*)server;
 
 /**
  *  This method is called after the NAT port mapping for the server has been
@@ -263,7 +263,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
  *  Use the "publicServerURL" property to retrieve the public address of the
  *  server.
  */
-- (void)webServerDidUpdateNATPortMapping:(GCDWebServer*)server;
+- (void)webServerDidUpdateNATPortMapping:(MyGCDWebServer*)server;
 
 /**
  *  This method is called when the first GCDWebServerConnection is opened by the
@@ -274,7 +274,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
  *  until before the last HTTP request has been responded to (and the
  *  corresponding last GCDWebServerConnection closed).
  */
-- (void)webServerDidConnect:(GCDWebServer*)server;
+- (void)webServerDidConnect:(MyGCDWebServer*)server;
 
 /**
  *  This method is called when the last GCDWebServerConnection is closed after
@@ -286,27 +286,27 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
  *  requests). This effectively coalesces the calls to -webServerDidConnect:
  *  and -webServerDidDisconnect:.
  */
-- (void)webServerDidDisconnect:(GCDWebServer*)server;
+- (void)webServerDidDisconnect:(MyGCDWebServer*)server;
 
 /**
  *  This method is called after the server has stopped.
  */
-- (void)webServerDidStop:(GCDWebServer*)server;
+- (void)webServerDidStop:(MyGCDWebServer*)server;
 
 @end
 
 /**
- *  The GCDWebServer class listens for incoming HTTP requests on a given port,
+ *  The MyGCDWebServer class listens for incoming HTTP requests on a given port,
  *  then passes each one to a "handler" capable of generating an HTTP response
  *  for it, which is then sent back to the client.
  *
- *  GCDWebServer instances can be created and used from any thread but it's
+ *  MyGCDWebServer instances can be created and used from any thread but it's
  *  recommended to have the main thread's runloop be running so internal callbacks
  *  can be handled e.g. for Bonjour registration.
  *
- *  See the README.md file for more information about the architecture of GCDWebServer.
+ *  See the README.md file for more information about the architecture of MyGCDWebServer.
  */
-@interface GCDWebServer : NSObject
+@interface MyGCDWebServer : NSObject
 
 /**
  *  Sets the delegate for the server.
@@ -392,7 +392,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 
 @end
 
-@interface GCDWebServer (Extensions)
+@interface MyGCDWebServer (Extensions)
 
 /**
  *  Returns the server's URL.
@@ -464,7 +464,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 
 @end
 
-@interface GCDWebServer (Handlers)
+@interface MyGCDWebServer (Handlers)
 
 /**
  *  Adds a default handler to the server to handle all incoming HTTP requests
@@ -508,7 +508,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 
 @end
 
-@interface GCDWebServer (GETHandlers)
+@interface MyGCDWebServer (GETHandlers)
 
 /**
  *  Adds a handler to the server to respond to incoming "GET" HTTP requests
@@ -536,22 +536,22 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 @end
 
 /**
- *  GCDWebServer provides its own built-in logging facility which is used by
+ *  MyGCDWebServer provides its own built-in logging facility which is used by
  *  default. It simply sends log messages to stderr assuming it is connected
  *  to a terminal type device.
  *
- *  GCDWebServer is also compatible with a limited set of third-party logging
- *  facilities. If one of them is available at compile time, GCDWebServer will
+ *  MyGCDWebServer is also compatible with a limited set of third-party logging
+ *  facilities. If one of them is available at compile time, MyGCDWebServer will
  *  automatically use it in place of the built-in one.
  *
  *  Currently supported third-party logging facilities are:
- *  - XLFacility (by the same author as GCDWebServer): https://github.com/swisspol/XLFacility
+ *  - XLFacility (by the same author as MyGCDWebServer): https://github.com/swisspol/XLFacility
  *
  *  For the built-in logging facility, the default logging level is INFO
  *  (or DEBUG if the preprocessor constant "DEBUG" evaluates to non-zero at
  *  compile time).
  *
- *  It's possible to have GCDWebServer use a custom logging facility by defining
+ *  It's possible to have MyGCDWebServer use a custom logging facility by defining
  *  the "__GCDWEBSERVER_LOGGING_HEADER__" preprocessor constant in Xcode build
  *  settings to the name of a custom header file (escaped like \"MyLogging.h\").
  *  This header file must define the following set of macros:
@@ -567,10 +567,10 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
  *  to non-zero.
  *
  *  The logging methods below send log messages to the same logging facility
- *  used by GCDWebServer. They can be used for consistency wherever you interact
- *  with GCDWebServer in your code (e.g. in the implementation of handlers).
+ *  used by MyGCDWebServer. They can be used for consistency wherever you interact
+ *  with MyGCDWebServer in your code (e.g. in the implementation of handlers).
  */
-@interface GCDWebServer (Logging)
+@interface MyGCDWebServer (Logging)
 
 /**
  *  Sets the log level of the logging facility below which log messages are discarded.
@@ -619,7 +619,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 
 #ifdef __GCDWEBSERVER_ENABLE_TESTING__
 
-@interface GCDWebServer (Testing)
+@interface MyGCDWebServer (Testing)
 
 /**
  *  Activates recording of HTTP requests and responses which create files in the

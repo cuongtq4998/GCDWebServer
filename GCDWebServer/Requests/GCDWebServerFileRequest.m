@@ -26,7 +26,7 @@
  */
 
 #if !__has_feature(objc_arc)
-#error GCDWebServer requires ARC
+#error MyGCDWebServer requires ARC
 #endif
 
 #import "GCDWebServerPrivate.h"
@@ -75,14 +75,14 @@
     return NO;
   }
 #ifdef __GCDWEBSERVER_ENABLE_TESTING__
-  NSString* creationDateHeader = [self.headers objectForKey:@"X-GCDWebServer-CreationDate"];
+  NSString* creationDateHeader = [self.headers objectForKey:@"X-MyGCDWebServer-CreationDate"];
   if (creationDateHeader) {
     NSDate* date = GCDWebServerParseISO8601(creationDateHeader);
     if (!date || ![[NSFileManager defaultManager] setAttributes:@{NSFileCreationDate : date} ofItemAtPath:_temporaryPath error:error]) {
       return NO;
     }
   }
-  NSString* modifiedDateHeader = [self.headers objectForKey:@"X-GCDWebServer-ModifiedDate"];
+  NSString* modifiedDateHeader = [self.headers objectForKey:@"X-MyGCDWebServer-ModifiedDate"];
   if (modifiedDateHeader) {
     NSDate* date = GCDWebServerParseRFC822(modifiedDateHeader);
     if (!date || ![[NSFileManager defaultManager] setAttributes:@{NSFileModificationDate : date} ofItemAtPath:_temporaryPath error:error]) {

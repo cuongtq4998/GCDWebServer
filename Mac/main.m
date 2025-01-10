@@ -27,7 +27,7 @@
 
 #import <libgen.h>
 
-#import "GCDWebServer.h"
+#import "MyGCDWebServer.h"
 
 #import "GCDWebServerDataRequest.h"
 #import "GCDWebServerURLEncodedFormRequest.h"
@@ -64,27 +64,27 @@ typedef enum {
   fprintf(stdout, "<DELEGATE METHOD \"%s\" CALLED>\n", [NSStringFromSelector(selector) UTF8String]);
 }
 
-- (void)webServerDidStart:(GCDWebServer*)server {
+- (void)webServerDidStart:(MyGCDWebServer*)server {
   [self _logDelegateCall:_cmd];
 }
 
-- (void)webServerDidCompleteBonjourRegistration:(GCDWebServer*)server {
+- (void)webServerDidCompleteBonjourRegistration:(MyGCDWebServer*)server {
   [self _logDelegateCall:_cmd];
 }
 
-- (void)webServerDidUpdateNATPortMapping:(GCDWebServer*)server {
+- (void)webServerDidUpdateNATPortMapping:(MyGCDWebServer*)server {
   [self _logDelegateCall:_cmd];
 }
 
-- (void)webServerDidConnect:(GCDWebServer*)server {
+- (void)webServerDidConnect:(MyGCDWebServer*)server {
   [self _logDelegateCall:_cmd];
 }
 
-- (void)webServerDidDisconnect:(GCDWebServer*)server {
+- (void)webServerDidDisconnect:(MyGCDWebServer*)server {
   [self _logDelegateCall:_cmd];
 }
 
-- (void)webServerDidStop:(GCDWebServer*)server {
+- (void)webServerDidStop:(MyGCDWebServer*)server {
   [self _logDelegateCall:_cmd];
 }
 
@@ -202,12 +202,12 @@ int main(int argc, const char* argv[]) {
       }
     }
 
-    GCDWebServer* webServer = nil;
+    MyGCDWebServer* webServer = nil;
     switch (mode) {
       // Simply serve contents of home directory
       case kMode_WebServer: {
         fprintf(stdout, "Running in Web Server mode from \"%s\"\n", [rootDirectory UTF8String]);
-        webServer = [[GCDWebServer alloc] init];
+        webServer = [[MyGCDWebServer alloc] init];
         [webServer addGETHandlerForBasePath:@"/" directoryPath:rootDirectory indexFilename:nil cacheAge:0 allowRangeRequests:YES];
         break;
       }
@@ -215,7 +215,7 @@ int main(int argc, const char* argv[]) {
       // Renders a HTML page
       case kMode_HTMLPage: {
         fprintf(stdout, "Running in HTML Page mode\n");
-        webServer = [[GCDWebServer alloc] init];
+        webServer = [[MyGCDWebServer alloc] init];
         [webServer addDefaultHandlerForMethod:@"GET"
                                  requestClass:[GCDWebServerRequest class]
                                  processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
@@ -227,7 +227,7 @@ int main(int argc, const char* argv[]) {
       // Implements an HTML form
       case kMode_HTMLForm: {
         fprintf(stdout, "Running in HTML Form mode\n");
-        webServer = [[GCDWebServer alloc] init];
+        webServer = [[MyGCDWebServer alloc] init];
         [webServer addHandlerForMethod:@"GET"
                                   path:@"/"
                           requestClass:[GCDWebServerRequest class]
@@ -256,7 +256,7 @@ int main(int argc, const char* argv[]) {
       // Implements HTML file upload
       case kMode_HTMLFileUpload: {
         fprintf(stdout, "Running in HTML File Upload mode\n");
-        webServer = [[GCDWebServer alloc] init];
+        webServer = [[MyGCDWebServer alloc] init];
         NSString* formHTML = @" \
           <form name=\"input\" action=\"/\" method=\"post\" enctype=\"multipart/form-data\"> \
           <input type=\"hidden\" name=\"secret\" value=\"42\"> \
@@ -308,7 +308,7 @@ int main(int argc, const char* argv[]) {
       // Test streaming responses
       case kMode_StreamingResponse: {
         fprintf(stdout, "Running in Streaming Response mode\n");
-        webServer = [[GCDWebServer alloc] init];
+        webServer = [[MyGCDWebServer alloc] init];
         [webServer addHandlerForMethod:@"GET"
                                   path:@"/sync"
                           requestClass:[GCDWebServerRequest class]
@@ -343,7 +343,7 @@ int main(int argc, const char* argv[]) {
       // Test async responses
       case kMode_AsyncResponse: {
         fprintf(stdout, "Running in Async Response mode\n");
-        webServer = [[GCDWebServer alloc] init];
+        webServer = [[MyGCDWebServer alloc] init];
         [webServer addHandlerForMethod:@"GET"
                                   path:@"/async"
                           requestClass:[GCDWebServerRequest class]

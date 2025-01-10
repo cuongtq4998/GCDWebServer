@@ -26,7 +26,7 @@
  */
 
 #if !__has_feature(objc_arc)
-#error GCDWebServer requires ARC
+#error MyGCDWebServer requires ARC
 #endif
 
 #import <zlib.h>

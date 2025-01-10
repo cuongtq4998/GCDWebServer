@@ -9,7 +9,7 @@
 @implementation Tests
 
 - (void)testWebServer {
-  GCDWebServer* server = [[GCDWebServer alloc] init];
+  MyGCDWebServer* server = [[MyGCDWebServer alloc] init];
   XCTAssertNotNil(server);
 }
 

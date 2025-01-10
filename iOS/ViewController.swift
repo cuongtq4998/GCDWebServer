@@ -40,9 +40,9 @@ class ViewController: UIViewController {
     webServer.delegate = self
     webServer.allowHiddenItems = true
     if webServer.start() {
-      label?.text = "GCDWebServer running locally on port \(webServer.port)"
+      label?.text = "MyGCDWebServer running locally on port \(webServer.port)"
     } else {
-      label?.text = "GCDWebServer not running!"
+      label?.text = "MyGCDWebServer not running!"
     }
   }
 

@@ -26,7 +26,7 @@
  */
 
 #if !__has_feature(objc_arc)
-#error GCDWebServer requires ARC
+#error MyGCDWebServer requires ARC
 #endif
 
 #import <TargetConditionals.h>
@@ -145,7 +145,7 @@ static void _ExecuteMainThreadRunLoopSources() {
 
 @end
 
-@implementation GCDWebServer {
+@implementation MyGCDWebServer {
   dispatch_queue_t _syncQueue;
   dispatch_group_t _sourceGroup;
   NSMutableArray<GCDWebServerHandler*>* _handlers;
@@ -353,7 +353,7 @@ static void _NetServiceRegisterCallBack(CFNetServiceRef service, CFStreamError* 
     if (error->error) {
       GWS_LOG_ERROR(@"Bonjour registration error %i (domain %i)", (int)error->error, (int)error->domain);
     } else {
-      GCDWebServer* server = (__bridge GCDWebServer*)info;
+      MyGCDWebServer* server = (__bridge MyGCDWebServer*)info;
       GWS_LOG_VERBOSE(@"Bonjour registration complete for %@", [server class]);
       if (!CFNetServiceResolveWithTimeout(server->_resolutionService, kBonjourResolutionTimeout, NULL)) {
         GWS_LOG_ERROR(@"Failed starting Bonjour resolution");
@@ -371,7 +371,7 @@ static void _NetServiceResolveCallBack(CFNetServiceRef service, CFStreamError* e
         GWS_LOG_ERROR(@"Bonjour resolution error %i (domain %i)", (int)error->error, (int)error->domain);
       }
     } else {
-      GCDWebServer* server = (__bridge GCDWebServer*)info;
+      MyGCDWebServer* server = (__bridge MyGCDWebServer*)info;
       GWS_LOG_INFO(@"%@ now locally reachable at %@", [server class], server.bonjourServerURL);
       if ([server.delegate respondsToSelector:@selector(webServerDidCompleteBonjourRegistration:)]) {
         [server.delegate webServerDidCompleteBonjourRegistration:server];
@@ -383,7 +383,7 @@ static void _NetServiceResolveCallBack(CFNetServiceRef service, CFStreamError* e
 static void _DNSServiceCallBack(DNSServiceRef sdRef, DNSServiceFlags flags, uint32_t interfaceIndex, DNSServiceErrorType errorCode, uint32_t externalAddress, DNSServiceProtocol protocol, uint16_t internalPort, uint16_t externalPort, uint32_t ttl, void* context) {
   GWS_DCHECK([NSThread isMainThread]);
   @autoreleasepool {
-    GCDWebServer* server = (__bridge GCDWebServer*)context;
+    MyGCDWebServer* server = (__bridge MyGCDWebServer*)context;
     if ((errorCode == kDNSServiceErr_NoError) || (errorCode == kDNSServiceErr_DoubleNAT)) {
       struct sockaddr_in addr4;
       bzero(&addr4, sizeof(addr4));
@@ -407,7 +407,7 @@ static void _DNSServiceCallBack(DNSServiceRef sdRef, DNSServiceFlags flags, uint
 static void _SocketCallBack(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, const void* data, void* info) {
   GWS_DCHECK([NSThread isMainThread]);
   @autoreleasepool {
-    GCDWebServer* server = (__bridge GCDWebServer*)info;
+    MyGCDWebServer* server = (__bridge MyGCDWebServer*)info;
     DNSServiceErrorType status = DNSServiceProcessResult(server->_dnsService);
     if (status != kDNSServiceErr_NoError) {
       GWS_LOG_ERROR(@"DNS service error %i", status);
@@ -802,7 +802,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
 
 @end
 
-@implementation GCDWebServer (Extensions)
+@implementation MyGCDWebServer (Extensions)
 
 - (NSURL*)serverURL {
   if (_source4) {
@@ -889,7 +889,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
 
 @end
 
-@implementation GCDWebServer (Handlers)
+@implementation MyGCDWebServer (Handlers)
 
 - (void)addDefaultHandlerForMethod:(NSString*)method requestClass:(Class)aClass processBlock:(GCDWebServerProcessBlock)block {
   [self addDefaultHandlerForMethod:method
@@ -985,7 +985,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
 
 @end
 
-@implementation GCDWebServer (GETHandlers)
+@implementation MyGCDWebServer (GETHandlers)
 
 - (void)addGETHandlerForPath:(NSString*)path staticData:(NSData*)staticData contentType:(NSString*)contentType cacheAge:(NSUInteger)cacheAge {
   [self addHandlerForMethod:@"GET"
@@ -1047,7 +1047,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
 
 - (void)addGETHandlerForBasePath:(NSString*)basePath directoryPath:(NSString*)directoryPath indexFilename:(NSString*)indexFilename cacheAge:(NSUInteger)cacheAge allowRangeRequests:(BOOL)allowRangeRequests {
   if ([basePath hasPrefix:@"/"] && [basePath hasSuffix:@"/"]) {
-    GCDWebServer* __unsafe_unretained server = self;
+    MyGCDWebServer* __unsafe_unretained server = self;
     [self
         addHandlerWithMatchBlock:^GCDWebServerRequest*(NSString* requestMethod, NSURL* requestURL, NSDictionary<NSString*, NSString*>* requestHeaders, NSString* urlPath, NSDictionary<NSString*, NSString*>* urlQuery) {
           if (![requestMethod isEqualToString:@"GET"]) {
@@ -1095,7 +1095,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
 
 @end
 
-@implementation GCDWebServer (Logging)
+@implementation MyGCDWebServer (Logging)
 
 + (void)setLogLevel:(int)level {
 #if defined(__GCDWEBSERVER_LOGGING_FACILITY_XLFACILITY__)
@@ -1145,7 +1145,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
 
 #ifdef __GCDWEBSERVER_ENABLE_TESTING__
 
-@implementation GCDWebServer (Testing)
+@implementation MyGCDWebServer (Testing)
 
 - (void)setRecordingEnabled:(BOOL)flag {
   _recording = flag;

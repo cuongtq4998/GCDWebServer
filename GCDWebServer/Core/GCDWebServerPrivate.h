@@ -29,13 +29,13 @@
 #import <sys/socket.h>
 
 /**
- *  All GCDWebServer headers.
+ *  All MyGCDWebServer headers.
  */
 
 #import "GCDWebServerHTTPStatusCodes.h"
 #import "GCDWebServerFunctions.h"
 
-#import "GCDWebServer.h"
+#import "MyGCDWebServer.h"
 #import "GCDWebServerConnection.h"
 
 #import "GCDWebServerDataRequest.h"
@@ -68,7 +68,7 @@
 #define __GCDWEBSERVER_LOGGING_FACILITY_XLFACILITY__
 
 #undef XLOG_TAG
-#define XLOG_TAG @"gcdwebserver.internal"
+#define XLOG_TAG @"MyGCDWebServer.internal"
 
 #import "XLFacilityMacros.h"
 
@@ -82,7 +82,7 @@
 #define GWS_DNOT_REACHED() XLOG_DEBUG_UNREACHABLE()
 
 /**
- *  If all of the above fail, then use GCDWebServer built-in
+ *  If all of the above fail, then use MyGCDWebServer built-in
  *  logging facility.
  */
 
@@ -156,7 +156,7 @@ extern void GCDWebServerLogMessage(GCDWebServerLoggingLevel level, NSString* _No
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  GCDWebServer internal constants and APIs.
+ *  MyGCDWebServer internal constants and APIs.
  */
 
 #define kGCDWebServerDefaultMimeType @"application/octet-stream"
@@ -181,10 +181,10 @@ extern NSString* GCDWebServerComputeMD5Digest(NSString* format, ...) NS_FORMAT_F
 extern NSString* GCDWebServerStringFromSockAddr(const struct sockaddr* addr, BOOL includeService);
 
 @interface GCDWebServerConnection ()
-- (instancetype)initWithServer:(GCDWebServer*)server localAddress:(NSData*)localAddress remoteAddress:(NSData*)remoteAddress socket:(CFSocketNativeHandle)socket;
+- (instancetype)initWithServer:(MyGCDWebServer*)server localAddress:(NSData*)localAddress remoteAddress:(NSData*)remoteAddress socket:(CFSocketNativeHandle)socket;
 @end
 
-@interface GCDWebServer ()
+@interface MyGCDWebServer ()
 @property(nonatomic, readonly) NSMutableArray<GCDWebServerHandler*>* handlers;
 @property(nonatomic, readonly, nullable) NSString* serverName;
 @property(nonatomic, readonly, nullable) NSString* authenticationRealm;

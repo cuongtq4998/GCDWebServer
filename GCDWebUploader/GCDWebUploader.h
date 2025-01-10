@@ -25,7 +25,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GCDWebServer.h"
+#import "MyGCDWebServer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The GCDWebUploader subclass of GCDWebServer implements an HTML 5 web browser
+ *  The GCDWebUploader subclass of MyGCDWebServer implements an HTML 5 web browser
  *  interface for uploading or downloading files, and moving or deleting files
  *  or directories.
  *
@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @warning For GCDWebUploader to work, "GCDWebUploader.bundle" must be added
  *  to the resources of the Xcode target.
  */
-@interface GCDWebUploader : GCDWebServer
+@interface GCDWebUploader : MyGCDWebServer
 
 /**
  *  Returns the upload directory as specified when the uploader was initialized.

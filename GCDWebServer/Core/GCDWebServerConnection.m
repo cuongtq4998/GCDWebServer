@@ -26,7 +26,7 @@
  */
 
 #if !__has_feature(objc_arc)
-#error GCDWebServer requires ARC
+#error MyGCDWebServer requires ARC
 #endif
 
 #import <TargetConditionals.h>
@@ -356,7 +356,7 @@ NS_ASSUME_NONNULL_END
       }];
 }
 
-- (instancetype)initWithServer:(GCDWebServer*)server localAddress:(NSData*)localAddress remoteAddress:(NSData*)remoteAddress socket:(CFSocketNativeHandle)socket {
+- (instancetype)initWithServer:(MyGCDWebServer*)server localAddress:(NSData*)localAddress remoteAddress:(NSData*)remoteAddress socket:(CFSocketNativeHandle)socket {
   if ((self = [super init])) {
     _server = server;
     _localAddressData = localAddress;

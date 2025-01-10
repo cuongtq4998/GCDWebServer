@@ -25,21 +25,21 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// GCDWebServer Core
-#import "GCDWebServer.h"
+// MyGCDWebServer Core
+#import "MyGCDWebServer.h"
 #import "GCDWebServerConnection.h"
 #import "GCDWebServerFunctions.h"
 #import "GCDWebServerHTTPStatusCodes.h"
 #import "GCDWebServerResponse.h"
 #import "GCDWebServerRequest.h"
 
-// GCDWebServer Requests
+// MyGCDWebServer Requests
 #import "GCDWebServerDataRequest.h"
 #import "GCDWebServerFileRequest.h"
 #import "GCDWebServerMultiPartFormRequest.h"
 #import "GCDWebServerURLEncodedFormRequest.h"
 
-// GCDWebServer Responses
+// MyGCDWebServer Responses
 #import "GCDWebServerDataResponse.h"
 #import "GCDWebServerErrorResponse.h"
 #import "GCDWebServerFileResponse.h"

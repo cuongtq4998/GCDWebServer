@@ -311,7 +311,7 @@ static inline BOOL _IsMacFinder(GCDWebServerRequest* request) {
     return [GCDWebServerErrorResponse responseWithServerError:kGCDWebServerHTTPStatusCode_InternalServerError underlyingError:error message:@"Failed creating directory \"%@\"", relativePath];
   }
 #ifdef __GCDWEBSERVER_ENABLE_TESTING__
-  NSString* creationDateHeader = [request.headers objectForKey:@"X-GCDWebServer-CreationDate"];
+  NSString* creationDateHeader = [request.headers objectForKey:@"X-MyGCDWebServer-CreationDate"];
   if (creationDateHeader) {
     NSDate* date = GCDWebServerParseISO8601(creationDateHeader);
     if (!date || ![[NSFileManager defaultManager] setAttributes:@{NSFileCreationDate : date} ofItemAtPath:absolutePath error:&error]) {
@@ -627,7 +627,7 @@ static inline xmlNodePtr _XMLChildWithName(xmlNodePtr child, const xmlChar* name
   }
 
 #ifdef __GCDWEBSERVER_ENABLE_TESTING__
-  NSString* lockTokenHeader = [request.headers objectForKey:@"X-GCDWebServer-LockToken"];
+  NSString* lockTokenHeader = [request.headers objectForKey:@"X-MyGCDWebServer-LockToken"];
   if (lockTokenHeader) {
     token = lockTokenHeader;
   }
