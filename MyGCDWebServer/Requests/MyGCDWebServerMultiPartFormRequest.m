@@ -48,7 +48,7 @@ static NSData* _newlineData = nil;
 static NSData* _newlinesData = nil;
 static NSData* _dashNewlineData = nil;
 
-@implementation GCDWebServerMultiPart
+@implementation MyGCDWebServerMultiPart
 
 - (instancetype)initWithControlName:(NSString* _Nonnull)name contentType:(NSString* _Nonnull)type {
   if ((self = [super init])) {
@@ -61,7 +61,7 @@ static NSData* _dashNewlineData = nil;
 
 @end
 
-@implementation GCDWebServerMultiPartArgument
+@implementation MyGCDWebServerMultiPartArgument
 
 - (instancetype)initWithControlName:(NSString* _Nonnull)name contentType:(NSString* _Nonnull)type data:(NSData* _Nonnull)data {
   if ((self = [super initWithControlName:name contentType:type])) {
@@ -81,7 +81,7 @@ static NSData* _dashNewlineData = nil;
 
 @end
 
-@implementation GCDWebServerMultiPartFile
+@implementation MyGCDWebServerMultiPartFile
 
 - (instancetype)initWithControlName:(NSString* _Nonnull)name contentType:(NSString* _Nonnull)type fileName:(NSString* _Nonnull)fileName temporaryPath:(NSString* _Nonnull)temporaryPath {
   if ((self = [super initWithControlName:name contentType:type])) {
@@ -106,8 +106,8 @@ static NSData* _dashNewlineData = nil;
   NSString* _defaultcontrolName;
   ParserState _state;
   NSMutableData* _data;
-  NSMutableArray<GCDWebServerMultiPartArgument*>* _arguments;
-  NSMutableArray<GCDWebServerMultiPartFile*>* _files;
+  NSMutableArray<MyGCDWebServerMultiPartArgument*>* _arguments;
+  NSMutableArray<MyGCDWebServerMultiPartFile*>* _files;
 
   NSString* _controlName;
   NSString* _fileName;
@@ -132,7 +132,7 @@ static NSData* _dashNewlineData = nil;
   }
 }
 
-- (instancetype)initWithBoundary:(NSString* _Nonnull)boundary defaultControlName:(NSString* _Nullable)name arguments:(NSMutableArray<GCDWebServerMultiPartArgument*>* _Nonnull)arguments files:(NSMutableArray<GCDWebServerMultiPartFile*>* _Nonnull)files {
+- (instancetype)initWithBoundary:(NSString* _Nonnull)boundary defaultControlName:(NSString* _Nullable)name arguments:(NSMutableArray<MyGCDWebServerMultiPartArgument*>* _Nonnull)arguments files:(NSMutableArray<MyGCDWebServerMultiPartFile*>* _Nonnull)files {
   NSData* data = boundary.length ? [[NSString stringWithFormat:@"--%@", boundary] dataUsingEncoding:NSASCIIStringEncoding] : nil;
   if (data == nil) {
     GWS_DNOT_REACHED();
@@ -247,7 +247,7 @@ static NSData* _dashNewlineData = nil;
             if (result == (ssize_t)dataLength) {
               if (close(_tmpFile) == 0) {
                 _tmpFile = 0;
-                GCDWebServerMultiPartFile* file = [[GCDWebServerMultiPartFile alloc] initWithControlName:_controlName contentType:_contentType fileName:_fileName temporaryPath:_tmpPath];
+                MyGCDWebServerMultiPartFile* file = [[MyGCDWebServerMultiPartFile alloc] initWithControlName:_controlName contentType:_contentType fileName:_fileName temporaryPath:_tmpPath];
                 [_files addObject:file];
               } else {
                 GWS_DNOT_REACHED();
@@ -260,7 +260,7 @@ static NSData* _dashNewlineData = nil;
             _tmpPath = nil;
           } else {
             NSData* data = [[NSData alloc] initWithBytes:(void*)dataBytes length:dataLength];
-            GCDWebServerMultiPartArgument* argument = [[GCDWebServerMultiPartArgument alloc] initWithControlName:_controlName contentType:_contentType data:data];
+            MyGCDWebServerMultiPartArgument* argument = [[MyGCDWebServerMultiPartArgument alloc] initWithControlName:_controlName contentType:_contentType data:data];
             [_arguments addObject:argument];
           }
         }
@@ -312,8 +312,8 @@ static NSData* _dashNewlineData = nil;
 @end
 
 @interface MyGCDWebServerMultiPartFormRequest ()
-@property(nonatomic) NSMutableArray<GCDWebServerMultiPartArgument*>* arguments;
-@property(nonatomic) NSMutableArray<GCDWebServerMultiPartFile*>* files;
+@property(nonatomic) NSMutableArray<MyGCDWebServerMultiPartArgument*>* arguments;
+@property(nonatomic) NSMutableArray<MyGCDWebServerMultiPartFile*>* files;
 @end
 
 @implementation MyGCDWebServerMultiPartFormRequest {
@@ -366,8 +366,8 @@ static NSData* _dashNewlineData = nil;
   return YES;
 }
 
-- (GCDWebServerMultiPartArgument*)firstArgumentForControlName:(NSString*)name {
-  for (GCDWebServerMultiPartArgument* argument in _arguments) {
+- (MyGCDWebServerMultiPartArgument*)firstArgumentForControlName:(NSString*)name {
+  for (MyGCDWebServerMultiPartArgument* argument in _arguments) {
     if ([argument.controlName isEqualToString:name]) {
       return argument;
     }
@@ -375,8 +375,8 @@ static NSData* _dashNewlineData = nil;
   return nil;
 }
 
-- (GCDWebServerMultiPartFile*)firstFileForControlName:(NSString*)name {
-  for (GCDWebServerMultiPartFile* file in _files) {
+- (MyGCDWebServerMultiPartFile*)firstFileForControlName:(NSString*)name {
+  for (MyGCDWebServerMultiPartFile* file in _files) {
     if ([file.controlName isEqualToString:name]) {
       return file;
     }
@@ -388,14 +388,14 @@ static NSData* _dashNewlineData = nil;
   NSMutableString* description = [NSMutableString stringWithString:[super description]];
   if (_arguments.count) {
     [description appendString:@"\n"];
-    for (GCDWebServerMultiPartArgument* argument in _arguments) {
+    for (MyGCDWebServerMultiPartArgument* argument in _arguments) {
       [description appendFormat:@"\n%@ (%@)\n", argument.controlName, argument.contentType];
       [description appendString:GCDWebServerDescribeData(argument.data, argument.contentType)];
     }
   }
   if (_files.count) {
     [description appendString:@"\n"];
-    for (GCDWebServerMultiPartFile* file in _files) {
+    for (MyGCDWebServerMultiPartFile* file in _files) {
       [description appendFormat:@"\n%@ (%@): %@\n{%@}", file.controlName, file.contentType, file.fileName, file.temporaryPath];
     }
   }

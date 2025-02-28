@@ -30,10 +30,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The GCDWebServerMultiPart class is an abstract class that wraps the content
+ *  The MyGCDWebServerMultiPart class is an abstract class that wraps the content
  *  of a part.
  */
-@interface GCDWebServerMultiPart : NSObject
+@interface MyGCDWebServerMultiPart : NSObject
 
 /**
  *  Returns the control name retrieved from the part headers.
@@ -54,10 +54,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The GCDWebServerMultiPartArgument subclass of GCDWebServerMultiPart wraps
+ *  The MyGCDWebServerMultiPartArgument subclass of MyGCDWebServerMultiPart wraps
  *  the content of a part as data in memory.
  */
-@interface GCDWebServerMultiPartArgument : GCDWebServerMultiPart
+@interface MyGCDWebServerMultiPartArgument : MyGCDWebServerMultiPart
 
 /**
  *  Returns the data for the part.
@@ -76,10 +76,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The GCDWebServerMultiPartFile subclass of GCDWebServerMultiPart wraps
+ *  The MyGCDWebServerMultiPartFile subclass of MyGCDWebServerMultiPart wraps
  *  the content of a part as a file on disk.
  */
-@interface GCDWebServerMultiPartFile : GCDWebServerMultiPart
+@interface MyGCDWebServerMultiPartFile : MyGCDWebServerMultiPart
 
 /**
  *  Returns the file name retrieved from the part headers.
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the path to the temporary file containing the part data.
  *
  *  @warning This temporary file will be automatically deleted when the
- *  GCDWebServerMultiPartFile is deallocated. If you want to preserve this file,
+ *  MyGCDWebServerMultiPartFile is deallocated. If you want to preserve this file,
  *  you must move it to a different location beforehand.
  */
 @property(nonatomic, readonly) NSString* temporaryPath;
@@ -105,15 +105,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the argument parts from the multipart encoded form as
- *  name / GCDWebServerMultiPartArgument pairs.
+ *  name / MyGCDWebServerMultiPartArgument pairs.
  */
-@property(nonatomic, readonly) NSArray<GCDWebServerMultiPartArgument*>* arguments;
+@property(nonatomic, readonly) NSArray<MyGCDWebServerMultiPartArgument*>* arguments;
 
 /**
  *  Returns the files parts from the multipart encoded form as
- *  name / GCDWebServerMultiPartFile pairs.
+ *  name / MyGCDWebServerMultiPartFile pairs.
  */
-@property(nonatomic, readonly) NSArray<GCDWebServerMultiPartFile*>* files;
+@property(nonatomic, readonly) NSArray<MyGCDWebServerMultiPartFile*>* files;
 
 /**
  *  Returns the MIME type for multipart encoded forms
@@ -124,12 +124,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns the first argument for a given control name or nil if not found.
  */
-- (nullable GCDWebServerMultiPartArgument*)firstArgumentForControlName:(NSString*)name;
+- (nullable MyGCDWebServerMultiPartArgument*)firstArgumentForControlName:(NSString*)name;
 
 /**
  *  Returns the first file for a given control name or nil if not found.
  */
-- (nullable GCDWebServerMultiPartFile*)firstFileForControlName:(NSString*)name;
+- (nullable MyGCDWebServerMultiPartFile*)firstFileForControlName:(NSString*)name;
 
 @end
 

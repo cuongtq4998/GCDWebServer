@@ -276,10 +276,10 @@ int main(int argc, const char* argv[]) {
                           requestClass:[MyGCDWebServerMultiPartFormRequest class]
                           processBlock:^MyGCDWebServerResponse*(MyGCDWebServerRequest* request) {
                             NSMutableString* string = [NSMutableString string];
-                            for (GCDWebServerMultiPartArgument* argument in [(MyGCDWebServerMultiPartFormRequest*)request arguments]) {
+                            for (MyGCDWebServerMultiPartArgument* argument in [(MyGCDWebServerMultiPartFormRequest*)request arguments]) {
                               [string appendFormat:@"%@ = %@<br>", argument.controlName, argument.string];
                             }
-                            for (GCDWebServerMultiPartFile* file in [(MyGCDWebServerMultiPartFormRequest*)request files]) {
+                            for (MyGCDWebServerMultiPartFile* file in [(MyGCDWebServerMultiPartFormRequest*)request files]) {
                               NSDictionary* attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:file.temporaryPath error:NULL];
                               [string appendFormat:@"%@ = &quot;%@&quot; (%@ | %llu %@)<br>", file.controlName, file.fileName, file.mimeType,
                                                    attributes.fileSize >= 1000 ? attributes.fileSize / 1000 : attributes.fileSize,

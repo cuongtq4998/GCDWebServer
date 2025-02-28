@@ -293,7 +293,7 @@ NS_ASSUME_NONNULL_END
   NSRange range = [[request.headers objectForKey:@"Accept"] rangeOfString:@"application/json" options:NSCaseInsensitiveSearch];
   NSString* contentType = (range.location != NSNotFound ? @"application/json" : @"text/plain; charset=utf-8");  // Required when using iFrame transport (see https://github.com/blueimp/jQuery-File-Upload/wiki/Setup)
 
-  GCDWebServerMultiPartFile* file = [request firstFileForControlName:@"files[]"];
+  MyGCDWebServerMultiPartFile* file = [request firstFileForControlName:@"files[]"];
   if ((!_allowHiddenItems && [file.fileName hasPrefix:@"."]) || ![self _checkFileExtension:file.fileName]) {
     return [MyGCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_Forbidden message:@"Uploaded file name \"%@\" is not allowed", file.fileName];
   }
