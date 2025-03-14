@@ -448,14 +448,14 @@ static inline NSString* _EncodeBase64(NSString* string) {
         return listeningSocket;
       } else {
         if (error) {
-          *error = GCDWebServerMakePosixError(errno);
+          *error = MyGCDWebServerMakePosixError(errno);
         }
         GWS_LOG_ERROR(@"Failed starting %s listening socket: %s (%i)", useIPv6 ? "IPv6" : "IPv4", strerror(errno), errno);
         close(listeningSocket);
       }
     } else {
       if (error) {
-        *error = GCDWebServerMakePosixError(errno);
+        *error = MyGCDWebServerMakePosixError(errno);
       }
       GWS_LOG_ERROR(@"Failed binding %s listening socket: %s (%i)", useIPv6 ? "IPv6" : "IPv4", strerror(errno), errno);
       close(listeningSocket);
@@ -463,7 +463,7 @@ static inline NSString* _EncodeBase64(NSString* string) {
 
   } else {
     if (error) {
-      *error = GCDWebServerMakePosixError(errno);
+      *error = MyGCDWebServerMakePosixError(errno);
     }
     GWS_LOG_ERROR(@"Failed creating %s listening socket: %s (%i)", useIPv6 ? "IPv6" : "IPv4", strerror(errno), errno);
   }

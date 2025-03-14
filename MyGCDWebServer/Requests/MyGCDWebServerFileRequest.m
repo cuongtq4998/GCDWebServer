@@ -50,7 +50,7 @@
   _file = open([_temporaryPath fileSystemRepresentation], O_CREAT | O_TRUNC | O_WRONLY, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
   if (_file <= 0) {
     if (error) {
-      *error = GCDWebServerMakePosixError(errno);
+      *error = MyGCDWebServerMakePosixError(errno);
     }
     return NO;
   }
@@ -60,7 +60,7 @@
 - (BOOL)writeData:(NSData*)data error:(NSError**)error {
   if (write(_file, data.bytes, data.length) != (ssize_t)data.length) {
     if (error) {
-      *error = GCDWebServerMakePosixError(errno);
+      *error = MyGCDWebServerMakePosixError(errno);
     }
     return NO;
   }
@@ -70,7 +70,7 @@
 - (BOOL)close:(NSError**)error {
   if (close(_file) < 0) {
     if (error) {
-      *error = GCDWebServerMakePosixError(errno);
+      *error = MyGCDWebServerMakePosixError(errno);
     }
     return NO;
   }

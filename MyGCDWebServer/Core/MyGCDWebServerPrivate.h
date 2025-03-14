@@ -166,7 +166,7 @@ static inline BOOL GCDWebServerIsValidByteRange(NSRange range) {
   return ((range.location != NSUIntegerMax) || (range.length > 0));
 }
 
-static inline NSError* GCDWebServerMakePosixError(int code) {
+static inline NSError* MyGCDWebServerMakePosixError(int code) {
   return [NSError errorWithDomain:NSPOSIXErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey : (NSString*)[NSString stringWithUTF8String:strerror(code)]}];
 }
 

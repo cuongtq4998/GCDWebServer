@@ -141,13 +141,13 @@ static inline NSDate* _NSDateFromTimeSpec(const struct timespec* t) {
   _file = open([_path fileSystemRepresentation], O_NOFOLLOW | O_RDONLY);
   if (_file <= 0) {
     if (error) {
-      *error = GCDWebServerMakePosixError(errno);
+      *error = MyGCDWebServerMakePosixError(errno);
     }
     return NO;
   }
   if (lseek(_file, _offset, SEEK_SET) != (off_t)_offset) {
     if (error) {
-      *error = GCDWebServerMakePosixError(errno);
+      *error = MyGCDWebServerMakePosixError(errno);
     }
     close(_file);
     return NO;
@@ -161,7 +161,7 @@ static inline NSDate* _NSDateFromTimeSpec(const struct timespec* t) {
   ssize_t result = read(_file, data.mutableBytes, length);
   if (result < 0) {
     if (error) {
-      *error = GCDWebServerMakePosixError(errno);
+      *error = MyGCDWebServerMakePosixError(errno);
     }
     return nil;
   }
