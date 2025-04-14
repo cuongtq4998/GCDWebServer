@@ -74,9 +74,9 @@ NSString* const GCDWebServerAuthenticationMethod_DigestAccess = @"DigestAccess";
 
 #if defined(__GCDWEBSERVER_LOGGING_FACILITY_BUILTIN__)
 #if DEBUG
-GCDWebServerLoggingLevel GCDWebServerLogLevel = kGCDWebServerLoggingLevel_Debug;
+MyGCDWebServerLoggingLevel GCDWebServerLogLevel = kMyGCDWebServerLoggingLevel_Debug;
 #else
-GCDWebServerLoggingLevel GCDWebServerLogLevel = kGCDWebServerLoggingLevel_Info;
+MyGCDWebServerLoggingLevel GCDWebServerLogLevel = kMyGCDWebServerLoggingLevel_Info;
 #endif
 #endif
 
@@ -88,7 +88,7 @@ static BOOL _run;
 
 static GCDWebServerBuiltInLoggerBlock _builtInLoggerBlock;
 
-void GCDWebServerLogMessage(GCDWebServerLoggingLevel level, NSString* format, ...) {
+void GCDWebServerLogMessage(MyGCDWebServerLoggingLevel level, NSString* format, ...) {
   static const char* levelNames[] = {"DEBUG", "VERBOSE", "INFO", "WARNING", "ERROR"};
   static int enableLogging = -1;
   if (enableLogging < 0) {
